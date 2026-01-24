@@ -1,6 +1,6 @@
 paths:
-  input_raw: data_raw
-  output_clean: data_clean
+  input_raw: /home/mathias/study/bausero/actasal2024
+  output_clean: /home/mathias/study/bausero/actas_cleaned
   output_tokens: data_tokens
 
 cleaning:
