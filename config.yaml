@@ -1,0 +1,23 @@
+paths:
+  input_raw: data_raw
+  output_clean: data_clean
+  output_tokens: data_tokens
+
+cleaning:
+  remove_accents: true
+  to_lower: true
+  remove_urls: true
+  remove_numbers: true
+  keep_only_letters: true
+
+normalization:
+  plural: true
+
+synonyms:
+  embarcacion: [barco, barca, bote, lancha]
+
+tokenization:
+  ngram: 2
+  min_word_length: 3
+
+language: es
