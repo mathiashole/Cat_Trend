@@ -15,6 +15,10 @@ normalization:
 
 synonyms:
   embarcacion: [barco, barca, bote, lancha]
+  deportivo: [deporte, deportiva, deportiv]
+  pescador: [pescador, pescadora, pescadores]
+  prefectura: [prefectura, prefecturas, pnn]
+  tramite: [tramite, tramites, trámite, trámites, tramitar]
 
 tokenization:
   ngram: 2
