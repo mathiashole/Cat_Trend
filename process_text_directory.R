@@ -13,6 +13,15 @@ process_text_directory <- function(input_dir, output_dir, config) {
 
     message("→ Procesando: ", basename(file))
 
+    # --- metadata --- ### but in the feature checking phase
+    fname <- basename(file)
+    base  <- tools::file_path_sans_ext(fname)
+
+    municipio <- strsplit(base, "_")[[1]][1]
+    fecha_raw <- strsplit(base, "_")[[1]][2]
+    fecha     <- as.Date(fecha_raw, format = "%d.%m.%Y")
+
+
     texto_crudo <- readLines(file, warn = FALSE)
     # normalized encoding to UTF-8
     texto_crudo <- iconv(texto_crudo, from = "", to = "UTF-8", sub = "")
