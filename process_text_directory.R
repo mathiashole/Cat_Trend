@@ -21,10 +21,13 @@ process_text_directory <- function(input_dir, output_dir, config) {
     fecha_raw <- strsplit(base, "_")[[1]][2]
     fecha     <- as.Date(fecha_raw, format = "%d.%m.%Y")
 
-
+    # --- read text --- ###
     texto_crudo <- readLines(file, warn = FALSE)
     # normalized encoding to UTF-8
     texto_crudo <- iconv(texto_crudo, from = "", to = "UTF-8", sub = "")
+
+    # --- clean NA lines --- ###
+    texto_crudo <- texto_crudo[!is.na(texto_crudo)]
 
     texto_limpio <- vapply(
       texto_crudo,
