@@ -6,9 +6,8 @@ process_text_directory <- function(input_dir, output_dir, config) {
 
   files <- list.files(input_dir, full.names = TRUE)
 
-  if (length(files) == 0) {
-    stop("No se encontraron archivos en ", input_dir)
-  }
+  actas_df     <- list()
+  parrafos_df  <- list()
 
   for (file in files) {
 
