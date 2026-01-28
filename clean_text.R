@@ -21,5 +21,11 @@ normalizar_plural <- function(palabra) {
 
 clean_text <- function(text, config) {
 
+  if (!is.null(config$synonyms)) {
+    for (canonico in names(config$synonyms)) {
+      palabras[palabras %in% config$synonyms[[canonico]]] <- canonico
+    }
+  }
 
+  paste(palabras, collapse = " ")
 }
