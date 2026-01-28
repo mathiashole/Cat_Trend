@@ -79,6 +79,16 @@ process_text_directory <- function(input_dir, output_dir, config) {
       file.path(output_dir, fname)
     )
 
+    # --- save acta-level metadata --- ###
+    actas_df[[length(actas_df) + 1]] <- data.frame(
+      doc_id    = base,
+      municipio = municipio,
+      fecha     = fecha,
+      texto     = paste(texto_acta_limpio, collapse = " "),
+      stringsAsFactors = FALSE
+    )
+  }
+
     message(mean(is.na(texto_limpio)))
 
     writeLines(
