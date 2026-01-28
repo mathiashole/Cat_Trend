@@ -38,6 +38,8 @@ process_text_directory <- function(input_dir, output_dir, config) {
     bloques <- bloques[sapply(bloques, function(x)
       any(trimws(x) != ""))
     ]
+    # --- initialize cleaned text vector --- ###
+    texto_acta_limpio <- character(0)
 
     texto_limpio <- vapply(
       texto_crudo,
