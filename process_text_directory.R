@@ -102,7 +102,7 @@ process_text_directory <- function(input_dir, output_dir, config) {
     row.names = FALSE
   )
 
-
+  message("✔ Save CSV summaries to output directory.")
 }
 
 
