@@ -35,6 +35,10 @@ process_text_directory <- function(input_dir, output_dir, config) {
       cumsum(trimws(texto_crudo) == "")
     )
 
+    bloques <- bloques[sapply(bloques, function(x)
+      any(trimws(x) != ""))
+    ]
+
     texto_limpio <- vapply(
       texto_crudo,
       clean_text,
