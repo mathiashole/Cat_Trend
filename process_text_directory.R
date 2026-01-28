@@ -60,6 +60,18 @@ process_text_directory <- function(input_dir, output_dir, config) {
 
       texto_parrafo <- paste(limpio, collapse = " ")
 
+      parrafos_df[[length(parrafos_df) + 1]] <- data.frame(
+        para_id      = paste0(base, "_p", i),
+        doc_id       = base,
+        municipio    = municipio,
+        fecha        = fecha,
+        paragraph_id = i,
+        texto        = texto_parrafo,
+        stringsAsFactors = FALSE
+      )
+
+      texto_acta_limpio <- c(texto_acta_limpio, texto_parrafo)
+
     }
 
     texto_limpio <- vapply(
