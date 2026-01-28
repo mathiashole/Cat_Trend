@@ -46,7 +46,12 @@ process_text_directory <- function(input_dir, output_dir, config) {
       bloque <- bloques[[i]]
       bloque <- bloque[trimws(bloque) != ""]
 
-
+      limpio <- vapply(
+        bloque,
+        clean_text,
+        character(1),
+        config = config
+      )
 
     }
 
