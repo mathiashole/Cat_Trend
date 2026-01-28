@@ -58,6 +58,8 @@ process_text_directory <- function(input_dir, output_dir, config) {
 
       if (length(limpio) == 0) next
 
+      texto_parrafo <- paste(limpio, collapse = " ")
+
     }
 
     texto_limpio <- vapply(
