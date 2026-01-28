@@ -18,3 +18,8 @@ normalizar_plural <- function(palabra) {
 
   palabra
 }
+
+clean_text <- function(text, config) {
+
+
+}
