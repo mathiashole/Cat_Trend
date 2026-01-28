@@ -1,15 +1,7 @@
-# normalizar_plural <- function(palabra) {
+normalizar_plural <- function(palabra) {
 
-#   palabra <- tolower(trimws(palabra))
+  if (is.na(palabra) || palabra == "")
+    return(NA_character_)
 
-#   # peces -> pez
-#   palabra <- sub("ces$", "z", palabra)
 
-#   if (nchar(palabra) > 4) {
-#     palabra <- sub("es$", "", palabra)
-#   } else if (nchar(palabra) > 3) {
-#     palabra <- sub("s$", "", palabra)
-#   }
-
-#   palabra
-# }
+}
