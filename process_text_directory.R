@@ -43,6 +43,10 @@ process_text_directory <- function(input_dir, output_dir, config) {
 
     for (i in seq_along(bloques)) {
 
+      bloque <- bloques[[i]]
+      bloque <- bloque[trimws(bloque) != ""]
+
+
 
     }
 
