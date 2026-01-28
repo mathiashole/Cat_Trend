@@ -73,11 +73,10 @@ process_text_directory <- function(input_dir, output_dir, config) {
       texto_acta_limpio <- c(texto_acta_limpio, texto_parrafo)
     }
 
-    texto_limpio <- vapply(
-      texto_crudo,
-      clean_text,
-      character(1),
-      config = config
+    # --- final cleaned text, save simple version --- ###
+    writeLines(
+      texto_acta_limpio,
+      file.path(output_dir, fname)
     )
 
     message(mean(is.na(texto_limpio)))
