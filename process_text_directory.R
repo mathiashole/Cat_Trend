@@ -41,6 +41,11 @@ process_text_directory <- function(input_dir, output_dir, config) {
     # --- initialize cleaned text vector --- ###
     texto_acta_limpio <- character(0)
 
+    for (i in seq_along(bloques)) {
+
+
+    }
+
     texto_limpio <- vapply(
       texto_crudo,
       clean_text,
