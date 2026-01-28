@@ -29,6 +29,11 @@ process_text_directory <- function(input_dir, output_dir, config) {
     # --- clean NA lines --- ###
     texto_crudo <- texto_crudo[!is.na(texto_crudo)]
 
+    bloques <- split(
+      texto_crudo,
+      cumsum(trimws(texto_crudo) == "")
+    )
+
     texto_limpio <- vapply(
       texto_crudo,
       clean_text,
