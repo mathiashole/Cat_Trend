@@ -89,13 +89,20 @@ process_text_directory <- function(input_dir, output_dir, config) {
     )
   }
 
-    message(mean(is.na(texto_limpio)))
+  # --- CSVs finales ---
+  write.csv(
+    do.call(rbind, actas_df),
+    file.path(output_dir, "actas_cleaned_by_acta.csv"),
+    row.names = FALSE
+  )
 
-    writeLines(
-      texto_limpio,
-      file.path(output_dir, basename(file))
-    )
-  }
+  write.csv(
+    do.call(rbind, parrafos_df),
+    file.path(output_dir, "actas_cleaned_by_paragraph.csv"),
+    row.names = FALSE
+  )
+
+
 }
 
 
