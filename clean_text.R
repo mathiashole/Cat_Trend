@@ -10,5 +10,11 @@ normalizar_plural <- function(palabra) {
 
   n <- nchar(palabra)
 
+  if (n > 4) {
+    palabra <- sub("es$", "", palabra)
+  } else if (n > 3) {
+    palabra <- sub("s$", "", palabra)
+  }
 
+  palabra
 }
