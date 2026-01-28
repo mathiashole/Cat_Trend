@@ -39,39 +39,6 @@ process_text_directory <- function(input_dir, output_dir, config) {
       any(trimws(x) != ""))
     ]
     # --- initialize cleaned text vector --- ###
-    # texto_acta_limpio <- character(0)
-
-    # for (i in seq_along(bloques)) {
-
-    #   bloque <- bloques[[i]]
-    #   bloque <- bloque[trimws(bloque) != ""]
-
-    #   limpio <- vapply(
-    #     bloque,
-    #     clean_text,
-    #     character(1),
-    #     config = config
-    #   )
-
-    #   limpio <- limpio[!is.na(limpio)]
-    #   limpio <- limpio[trimws(limpio) != ""]
-
-    #   if (length(limpio) == 0) next
-
-    #   texto_parrafo <- paste(limpio, collapse = " ")
-
-    #   parrafos_df[[length(parrafos_df) + 1]] <- data.frame(
-    #     para_id      = paste0(base, "_p", i),
-    #     doc_id       = base,
-    #     municipio    = municipio,
-    #     fecha        = fecha,
-    #     paragraph_id = i,
-    #     texto        = texto_parrafo,
-    #     stringsAsFactors = FALSE
-    #   )
-
-    #   texto_acta_limpio <- c(texto_acta_limpio, texto_parrafo)
-    # }
     parrafos_acta <- list()
 
     for (i in seq_along(bloques)) {
