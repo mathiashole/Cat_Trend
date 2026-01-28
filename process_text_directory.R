@@ -53,6 +53,11 @@ process_text_directory <- function(input_dir, output_dir, config) {
         config = config
       )
 
+      limpio <- limpio[!is.na(limpio)]
+      limpio <- limpio[trimws(limpio) != ""]
+
+      if (length(limpio) == 0) next
+
     }
 
     texto_limpio <- vapply(
