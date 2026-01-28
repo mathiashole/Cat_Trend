@@ -71,7 +71,6 @@ process_text_directory <- function(input_dir, output_dir, config) {
       )
 
       texto_acta_limpio <- c(texto_acta_limpio, texto_parrafo)
-
     }
 
     texto_limpio <- vapply(
