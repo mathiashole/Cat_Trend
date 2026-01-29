@@ -29,6 +29,9 @@ clean_text <- function(text, config) {
   if (isTRUE(config$cleaning$to_lower))
     text <- tolower(text)
 
+  if (isTRUE(config$cleaning$remove_urls))
+    text <- gsub("http[s]?://\\S+|www\\S+", " ", text)
+
   if (!is.null(config$synonyms)) {
     for (canonico in names(config$synonyms)) {
       palabras[palabras %in% config$synonyms[[canonico]]] <- canonico
