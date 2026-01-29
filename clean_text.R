@@ -21,14 +21,6 @@ normalizar_plural <- function(palabra) {
 
 clean_text <- function(text, config) {
 
-  if (isTRUE(config$normalization$plural)) {
-
-    if (!exists("normalizar_plural", mode = "function")) {
-      stop("normalizar_plural() no está definida. ¿Olvidaste source()?")
-    }
-
-    palabras <- vapply(palabras, normalizar_plural, character(1))
-  }
 
   if (!is.null(config$synonyms)) {
     for (canonico in names(config$synonyms)) {
