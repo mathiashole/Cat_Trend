@@ -45,11 +45,11 @@ clean_text <- function(text, config) {
 
   palabras <- strsplit(text, "\\s+")[[1]]
 
-palabras <- palabras[!is.na(palabras) & palabras != ""]
+  palabras <- palabras[!is.na(palabras) & palabras != ""]
 
-if (isTRUE(config$normalization$plural)) {
-  palabras <- vapply(palabras, normalizar_plural, character(1))
-}
+  if (isTRUE(config$normalization$plural)) {
+    palabras <- vapply(palabras, normalizar_plural, character(1))
+  }
 
   if (!is.null(config$synonyms)) {
     for (canonico in names(config$synonyms)) {
