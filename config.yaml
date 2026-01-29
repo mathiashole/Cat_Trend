@@ -13,6 +13,15 @@ cleaning:
 normalization:
   plural: true
 
+personal_names:
+  - juan
+  - jose
+  - maria
+  - pedro
+  - ana
+  - perez
+  - rodriguez
+
 synonyms:
   embarcacion: [barco, barca, bote, lancha]
   deportivo: [deporte, deportiva, deportiv]
