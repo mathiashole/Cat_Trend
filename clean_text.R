@@ -26,6 +26,9 @@ clean_text <- function(text, config) {
   if (isTRUE(config$cleaning$remove_accents))
     text <- iconv(text, to = "ASCII//TRANSLIT")
 
+  if (isTRUE(config$cleaning$to_lower))
+    text <- tolower(text)
+
   if (!is.null(config$synonyms)) {
     for (canonico in names(config$synonyms)) {
       palabras[palabras %in% config$synonyms[[canonico]]] <- canonico
