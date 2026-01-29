@@ -38,6 +38,19 @@ clean_text <- function(text, config) {
   if (isTRUE(config$cleaning$keep_only_letters))
     text <- gsub("[^a-z\\s]", " ", text)
 
+  text <- gsub("\\s+", " ", text)
+  text <- trimws(text)
+
+  # palabras <- strsplit(text, "\\s+")[[1]]
+
+  palabras <- strsplit(text, "\\s+")[[1]]
+
+palabras <- palabras[!is.na(palabras) & palabras != ""]
+
+if (isTRUE(config$normalization$plural)) {
+  palabras <- vapply(palabras, normalizar_plural, character(1))
+}
+
   if (!is.null(config$synonyms)) {
     for (canonico in names(config$synonyms)) {
       palabras[palabras %in% config$synonyms[[canonico]]] <- canonico
