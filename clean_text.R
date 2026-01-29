@@ -21,6 +21,10 @@ normalizar_plural <- function(palabra) {
 
 clean_text <- function(text, config) {
 
+  if (is.na(text) || text == "") return(NA_character_)
+
+  if (isTRUE(config$cleaning$remove_accents))
+    text <- iconv(text, to = "ASCII//TRANSLIT")
 
   if (!is.null(config$synonyms)) {
     for (canonico in names(config$synonyms)) {
