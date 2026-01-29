@@ -47,6 +47,10 @@ clean_text <- function(text, config) {
 
   palabras <- palabras[!is.na(palabras) & palabras != ""]
 
+  if (isTRUE(config$normalization$remove_personal_names) && !is.null(config$personal_names)) {
+    palabras <- palabras[!palabras %in% config$personal_names]
+  }
+
   if (isTRUE(config$normalization$plural)) {
     palabras <- vapply(palabras, normalizar_plural, character(1))
   }
