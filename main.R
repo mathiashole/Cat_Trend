@@ -78,6 +78,8 @@ if (is.null(project_name)) {
   project_name <- "default_project"
 }
 
+timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
