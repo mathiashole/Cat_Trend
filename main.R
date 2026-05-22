@@ -60,7 +60,13 @@ if (is.null(ngram_number)) {
 
 # ---------- Load packages ----------
 
-required_packages <- c()
+required_packages <- c("stringr",
+  "lubridate",
+  "tidytext",
+  "stopwords",
+  "tidyverse",
+  "ggplot2",
+  "yaml")
 
 directory <- NULL
 keywords_file <- NULL
