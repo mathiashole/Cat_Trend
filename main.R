@@ -42,6 +42,7 @@ config <- yaml::read_yaml(config_file)
 directory      <- config$input$directory
 keywords_file  <- config$input$keywords
 language       <- config$language$selected
+ngram_number   <- config$text_processing$ngram
 
 directory <- NULL
 keywords_file <- NULL
