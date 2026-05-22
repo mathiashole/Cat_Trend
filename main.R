@@ -46,6 +46,10 @@ ngram_number   <- config$text_processing$ngram
 
 # ---------- Validate required values ----------
 
+if (is.null(directory)) {
+  stop("ERROR: input$directory missing in YAML")
+}
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
