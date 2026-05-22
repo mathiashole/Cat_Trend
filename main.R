@@ -74,6 +74,10 @@ manage_packages(required_packages)
 
 project_name <- config$project$name
 
+if (is.null(project_name)) {
+  project_name <- "default_project"
+}
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
