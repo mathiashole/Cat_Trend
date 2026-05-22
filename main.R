@@ -50,6 +50,10 @@ if (is.null(directory)) {
   stop("ERROR: input$directory missing in YAML")
 }
 
+if (is.null(language)) {
+  stop("ERROR: language$selected missing in YAML")
+}
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
