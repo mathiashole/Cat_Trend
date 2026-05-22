@@ -4,13 +4,15 @@ suppressPackageStartupMessages({
   library(yaml)
 })
 
-# Add more changes as needed
-
 # Load functions from functions.R
 source("code/init_utilitis.R")
 source("code/get_time_v1.R")
 source("code/txt_ngram_to_tidy.R")
 source("code/txt_frequency.R")
+
+# Read configuration from config.yaml
+
+args <- commandArgs(trailingOnly = TRUE)
 
 directory <- NULL
 keywords_file <- NULL
