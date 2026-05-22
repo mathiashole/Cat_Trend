@@ -35,6 +35,12 @@ if (!file.exists(config_file)) {
 
 cat("📄 Loading config:", config_file, "\n")
 
+config <- yaml::read_yaml(config_file)
+
+# ---------- Read config values ----------
+
+directory      <- config$input$directory
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
