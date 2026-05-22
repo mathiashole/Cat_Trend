@@ -14,6 +14,8 @@ source("code/txt_frequency.R")
 
 args <- commandArgs(trailingOnly = TRUE)
 
+config_file <- "config/default.yaml"
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
