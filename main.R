@@ -68,6 +68,8 @@ required_packages <- c("stringr",
   "ggplot2",
   "yaml")
 
+manage_packages(required_packages)
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
