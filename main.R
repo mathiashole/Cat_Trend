@@ -40,6 +40,7 @@ config <- yaml::read_yaml(config_file)
 # ---------- Read config values ----------
 
 directory      <- config$input$directory
+keywords_file  <- config$input$keywords
 
 directory <- NULL
 keywords_file <- NULL
