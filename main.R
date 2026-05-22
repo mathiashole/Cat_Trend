@@ -54,6 +54,10 @@ if (is.null(language)) {
   stop("ERROR: language$selected missing in YAML")
 }
 
+if (is.null(ngram_number)) {
+  stop("ERROR: text_processing$ngram missing in YAML")
+}
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
