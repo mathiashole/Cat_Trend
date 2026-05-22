@@ -33,6 +33,8 @@ if (!file.exists(config_file)) {
   stop(paste("ERROR: Config file does not exist:", config_file))
 }
 
+cat("📄 Loading config:", config_file, "\n")
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
