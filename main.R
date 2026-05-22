@@ -16,6 +16,10 @@ args <- commandArgs(trailingOnly = TRUE)
 
 config_file <- "config/default.yaml"
 
+if ("--config" %in% args) {
+
+}
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
