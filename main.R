@@ -1,5 +1,9 @@
 #!/usr/bin/env Rscript
 
+suppressPackageStartupMessages({
+  library(yaml)
+})
+
 # Add more changes as needed
 
 # Load functions from functions.R
