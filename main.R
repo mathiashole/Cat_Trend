@@ -87,6 +87,7 @@ output_dir <- file.path(
   timestamp
 )
 
+dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
 directory <- NULL
 keywords_file <- NULL
