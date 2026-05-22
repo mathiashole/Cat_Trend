@@ -106,6 +106,8 @@ cat("\n📊 Preparing data...\n")
 
 main_get_time(directory, timestamp)
 
+main_process_texts(directory, language, ngram_number, timestamp)
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
