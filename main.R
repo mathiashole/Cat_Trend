@@ -122,6 +122,10 @@ if (isTRUE(config$analysis$categories)) {
   # future category analysis
 }
 
+# ---------- Finish ----------
+
+cat("\n✅ Processing completed successfully.\n")
+
 # directory <- NULL
 # keywords_file <- NULL
 # language <- "SP"  
