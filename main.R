@@ -27,6 +27,12 @@ if ("--config" %in% args) {
   config_file <- args[config_index]
 }
 
+# Validate config file
+
+if (!file.exists(config_file)) {
+  stop(paste("ERROR: Config file does not exist:", config_file))
+}
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
