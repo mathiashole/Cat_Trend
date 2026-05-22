@@ -80,6 +80,14 @@ if (is.null(project_name)) {
 
 timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
 
+
+output_dir <- file.path(
+  "results",
+  project_name,
+  timestamp
+)
+
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
