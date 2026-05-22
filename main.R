@@ -18,6 +18,9 @@ config_file <- "config/default.yaml"
 
 if ("--config" %in% args) {
 
+  config_index <- which(args == "--config") + 1
+
+
 }
 
 directory <- NULL
