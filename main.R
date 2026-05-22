@@ -89,6 +89,8 @@ output_dir <- file.path(
 
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
+cat(" > Output directory:", output_dir, "\n")
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
