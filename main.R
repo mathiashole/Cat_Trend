@@ -70,6 +70,10 @@ required_packages <- c("stringr",
 
 manage_packages(required_packages)
 
+# ---------- Create output directory ----------
+
+project_name <- config$project$name
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
