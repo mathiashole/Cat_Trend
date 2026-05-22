@@ -112,6 +112,12 @@ main_process_texts(directory, language, ngram_number, timestamp)
 
 cat("\n🧮 Performing analysis...\n")
 
+
+if (isTRUE(config$analysis$frequency)) {
+  analyze_frequency(timestamp)
+}
+
+
 # directory <- NULL
 # keywords_file <- NULL
 # language <- "SP"  
