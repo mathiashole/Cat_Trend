@@ -98,6 +98,12 @@ file.copy(
   file.path(output_dir, "config_used.yaml")
 )
 
+# ---------- Main script logic ----------
+
+cat("\n🔄 Start processing\n")
+
+cat("\n📊 Preparing data...\n")
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
