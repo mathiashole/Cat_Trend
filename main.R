@@ -108,6 +108,10 @@ main_get_time(directory, timestamp)
 
 main_process_texts(directory, language, ngram_number, timestamp)
 
+# ---------- Analyze frequency ----------
+
+cat("\n🧮 Performing analysis...\n")
+
 # directory <- NULL
 # keywords_file <- NULL
 # language <- "SP"  
