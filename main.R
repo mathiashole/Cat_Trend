@@ -44,6 +44,8 @@ keywords_file  <- config$input$keywords
 language       <- config$language$selected
 ngram_number   <- config$text_processing$ngram
 
+# ---------- Validate required values ----------
+
 directory <- NULL
 keywords_file <- NULL
 language <- "SP"  
