@@ -117,6 +117,10 @@ if (isTRUE(config$analysis$frequency)) {
   analyze_frequency(timestamp)
 }
 
+if (isTRUE(config$analysis$categories)) {
+  cat("\n📚 Category analysis enabled\n")
+  # future category analysis
+}
 
 # directory <- NULL
 # keywords_file <- NULL
