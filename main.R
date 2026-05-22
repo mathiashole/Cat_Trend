@@ -24,7 +24,7 @@ if ("--config" %in% args) {
     stop("ERROR: Missing config file after --config")
   }
 
-
+  config_file <- args[config_index]
 }
 
 directory <- NULL
