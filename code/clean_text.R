@@ -29,5 +29,7 @@ normalize_document_name <- function(name) {
 
 # Usful for removing noise before tokenizing or generating embeddings
 clean_general_text <- function(text) {
+    if (is.na(text) || text == "") return(text)
+
 
 }
