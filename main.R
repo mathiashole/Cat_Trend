@@ -18,13 +18,13 @@ config_file <- "config/default.yaml"
 
 if ("--config" %in% args) {
 
-  config_index <- which(args == "--config") + 1
+  config_file <- which(args == "--config") + 1
 
-  if (config_index > length(args)) {
+  if (config_file > length(args)) {
     stop("ERROR: Missing config file after --config")
   }
 
-  config_file <- args[config_index]
+  config <- args[config_file]
 }
 
 # Validate config file
