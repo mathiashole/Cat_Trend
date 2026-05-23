@@ -19,7 +19,10 @@ normalize_document_name <- function(name) {
     words <- unlist(strsplit(name, "\\s+"))               # Split by spaces
     words <- words[nchar(words) > 2]                      # Filter out short words (2 or fewer characters)
 
+    if (length(words) == 0) return(NA_character_)
 
+    # Keep the longest word as the normalized name
+    longest_word <- words[which.max(nchar(words))]
 
     return(longest_word)
 }
