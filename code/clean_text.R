@@ -8,3 +8,8 @@ remove_accents <- function(text) {
 
     return(cleaned)
 }
+
+# Normalize plural forms to singular (e.g., "gatos" -> "gato", "peces" -> "pez")
+normalize_document_name <- function(name) {
+
+}
