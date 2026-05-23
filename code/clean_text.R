@@ -36,5 +36,5 @@ clean_general_text <- function(text) {
     text <- gsub("[^a-z0-9\\s]", " ", text) # Keep letters, numbers and spaces
     text <- str_squish(text) # Remove extra spaces
 
-
+    return(text)
 }
