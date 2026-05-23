@@ -13,11 +13,15 @@ remove_accents <- function(text) {
 normalize_document_name <- function(name) {
     if (is.na(name) || name == "") return(NA_character_)
 
+    #name <- basename(name)
     name <- tolower(name)
-    name <- tools::file_path_sans_ext(name)               # Remove extension txt, csv, etc.
-    name <- gsub("[^a-z]", " ", name)                     # Change non-letters to space
-    words <- unlist(strsplit(name, "\\s+"))               # Split by spaces
-    words <- words[nchar(words) > 2]                      # Filter out short words (2 or fewer characters)
+    name <- tools::file_path_sans_ext(name) # Remove extension txt, csv, etc.
+    name <- remove_accents(name)
+    name <- gsub("[^a-z]", " ", name) # Change non-letters to space
+    #name <- gsub("[^a-z0-9]+", "_", name)
+    #name <- gsub("^_|_$", "", name)
+    words <- unlist(strsplit(name, "\\s+")) # Split by spaces
+    words <- words[nchar(words) > 2] # Filter out short words (2 or fewer characters)
 
     if (length(words) == 0) return(NA_character_)
 
