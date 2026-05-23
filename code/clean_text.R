@@ -3,7 +3,7 @@
 library(stringr)
 
 normalize_encoding <- function(text) {
-
+    text <- iconv(text, from = "", to = "UTF-8", sub = "")
 
     return(text)
 }
