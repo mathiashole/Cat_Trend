@@ -13,6 +13,9 @@ remove_accents <- function(text) {
 normalize_document_name <- function(name) {
     if (is.na(name) || name == "") return(NA_character_)
 
+    name <- tolower(name)
+    name <- tools::file_path_sans_ext(name)               # Remove extension txt, csv, etc.
+    name <- gsub("[^a-z]", " ", name)                     # Change non-letters to space
 
 
     return(longest_word)
