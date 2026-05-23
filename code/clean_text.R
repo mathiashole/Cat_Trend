@@ -31,5 +31,10 @@ normalize_document_name <- function(name) {
 clean_general_text <- function(text) {
     if (is.na(text) || text == "") return(text)
 
+    text <- tolower(text)
+    text <- remove_accents(text)
+    text <- gsub("[^a-z0-9\\s]", " ", text) # Keep letters, numbers and spaces
+    text <- str_squish(text) # Remove extra spaces
+
 
 }
