@@ -2,6 +2,12 @@
 
 library(stringr)
 
+normalize_encoding <- function(text) {
+
+
+    return(text)
+}
+
 remove_accents <- function(text) {
     if (is.na(text) || text == "") return(text)
     cleaned <- iconv(text, to = "ASCII//TRANSLIT")
