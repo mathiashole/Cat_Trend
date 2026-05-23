@@ -11,5 +11,9 @@ remove_accents <- function(text) {
 
 # Normalize plural forms to singular (e.g., "gatos" -> "gato", "peces" -> "pez")
 normalize_document_name <- function(name) {
+    if (is.na(name) || name == "") return(NA_character_)
 
+
+
+    return(longest_word)
 }
