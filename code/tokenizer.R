@@ -35,7 +35,7 @@ if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_sto
 # Internal function to proccess complex n-grams
 generate_ngrams <- function(df, n) {
     df %>%
-
+        unnest_tokens(word, text, token = "ngrams", n = n) %>%
 }
 
 
