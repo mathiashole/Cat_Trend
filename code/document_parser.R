@@ -15,6 +15,9 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     data_table <- read.table(data_table_path, sep = "\t", header = FALSE, col.names = c("document", "date"))
     data_table$date <- gsub("/", "-", data_table$date)
 
+    # Normaliztion of document names with clean.R functions
+    data_table$origin_document <- basename(data_table$document)
+    data_table$document <- sapply(data_table$origin_document, normalize_document_name)
 
 
     return(infoText)
