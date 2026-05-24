@@ -55,4 +55,6 @@ if (ngram_str == "1" || ngram_str == "") {
     stop("ERROR [Tokenizer]: Invalid number. Usage 1, 2, 3 o 4.")
 }
 
+    tokens_df <- tokens_df %>% filter(!is.na(word) & word != "")
+
 }
