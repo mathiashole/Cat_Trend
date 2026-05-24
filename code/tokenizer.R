@@ -39,14 +39,16 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
     return(stopwords_list)
 }
 
-# Internal function to proccess complex n-grams
-generate_ngrams <- function(df, n) {
-    df %>%
-        unnest_tokens(word, text, token = "ngrams", n = n) %>%
-        separate(word, into = paste0("word", 1:n), sep = " ", fill = "right") %>%
-        filter(across(starts_with("word"), ~ !is.na(.) & !grepl("\\d+", .) & !(tolower(.) %in% stopwords_list))) %>%
-        unite(word, starts_with("word"), sep = " ")
-}
+# # Internal function to proccess complex n-grams
+# generate_ngrams <- function(df, n) {
+#     df %>%
+#         unnest_tokens(word, text, token = "ngrams", n = n) %>%
+#         separate(word, into = paste0("word", 1:n), sep = " ", fill = "right") %>%
+#         filter(across(starts_with("word"), ~ !is.na(.) & !grepl("\\d+", .) & !(tolower(.) %in% stopwords_list))) %>%
+#         unite(word, starts_with("word"), sep = " ")
+# }
+
+tokenize_corpus <- function(paragraphs_df, language, ngram_number, custom_stopwords_path = NULL) {
 
 # Orchestrate the tokenization process
 ngram_str <- as.character(ngram_number)
