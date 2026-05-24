@@ -26,6 +26,10 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     for (i in seq_along(data_table$origin_document)) {
         file_path <- file.path(directory, data_table$origin_document[i])
     
+        if (!file.exists(file_path)) {
+            message("⚠️ Archivo no encontrado: ", file_path)
+            next
+        }
 
 
     return(infoText)
