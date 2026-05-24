@@ -45,4 +45,8 @@ generate_ngrams <- function(df, n) {
 # Orchestrate the tokenization process
 ngram_str <- as.character(ngram_number)
 
+if (ngram_str == "1" || ngram_str == "") {
+
+}
+
 }
