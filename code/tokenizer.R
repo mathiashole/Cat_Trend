@@ -10,14 +10,14 @@ source("code/clean_text.R")
 
 load_stopwords <- function(language, custom_stopwords_path = NULL) {
     language <- tolower(language)
-# Charge stopwords list based on the language
-if (tolower(language) == "sp") {
-    stopwords_list <- stopwords(language = "es", source = "stopwords-iso")
-}  else if (tolower(language) == "en") {
-    stopwords_list <- stopwords(language = "en", source = "stopwords-iso")
-} else {
-    stop("ERROR [Tokenizer]: Languague invalid 'SP' o 'EN'.")
-}
+    # Charge stopwords list based on the language
+    if (tolower(language) == "sp") {
+        stopwords_list <- stopwords(language = "es", source = "stopwords-iso")
+    }  else if (tolower(language) == "en") {
+        stopwords_list <- stopwords(language = "en", source = "stopwords-iso")
+    } else {
+        stop("ERROR [Tokenizer]: Languague invalid 'SP' o 'EN'.")
+    }
 
 # Integrate personalized stopwords
 if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_stopwords_path != "null") {
