@@ -49,7 +49,7 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
 # }
 
 tokenize_corpus <- function(paragraphs_df, language, ngram_number, custom_stopwords_path = NULL) {
-
+    stopwords_list <- load_stopwords(language, custom_stopwords_path)
 # Orchestrate the tokenization process
 ngram_str <- as.character(ngram_number)
 
