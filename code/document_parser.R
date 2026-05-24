@@ -25,7 +25,8 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     documents_list <- vector(mode = "list", length = nrow(data_table))
 
     # Loop per document to read and parse into paragraphs
-    for (i in seq_along(data_table$origin_document)) {
+    # for (i in seq_along(data_table$origin_document)) {
+    for (i in seq_len(nrow(data_table))) {
         file_path <- file.path(directory, data_table$origin_document[i])
     
         if (!file.exists(file_path)) {
@@ -46,9 +47,11 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     }
     
     # Create cleaned tibble for the current document
-    temporal <- tibble(document = data_table$document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
+    # temporal <- tibble(document = data_table$document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
+    temporal <- tibble(para_id = paste0(data_table$document[i], "_p", seq_along(speech)),document = data_table$document[i], original_file = data_table$origin_document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
     
-    infoText <- bind_rows(infoText, temporal)
+    # infoText <- bind_rows(infoText, temporal)
+    documents_list[[i]] <- temporal
     }
 
     # Force factors with correct levels
