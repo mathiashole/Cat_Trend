@@ -36,6 +36,7 @@ if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_sto
 generate_ngrams <- function(df, n) {
     df %>%
         unnest_tokens(word, text, token = "ngrams", n = n) %>%
+        separate(word, into = paste0("word", 1:n), sep = " ", fill = "right") %>%
 }
 
 
