@@ -5,6 +5,8 @@ suppressPackageStartupMessages({
     library(tidytext)
     library(stopwords)
 })
+# call the clean text module to use the custom stopwords path
+source("code/clean_text.R")
 
 tokenize_corpus <- function(paragraphs_df, language, ngram_number) {
 # Charge stopwords list based on the language
