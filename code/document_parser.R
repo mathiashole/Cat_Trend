@@ -33,6 +33,10 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     
     speech <- readLines(file_path, warn = FALSE)
     
+    if (length(speech) == 0) {
+        message("File empty: ", file_path)
+        next
+    }
 
 
     return(infoText)
