@@ -1,5 +1,10 @@
 #!/usr/bin/env Rscript
 
+# Load specialized modules
+source("code/clean_text.R")
+source("code/document_parser.R")
+source("code/tokenizer.R")
+
 main_process_texts <- function(directory, language, ngram_number, date_hour) {
 
 # Function to remove accent marks from a text
