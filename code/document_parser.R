@@ -34,24 +34,24 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
             next
         }
     
-    speech <- readLines(file_path, warn = FALSE, encoding = "UTF-8")
-    
-    if (length(speech) == 0) {
-        message("File empty: ", file_path)
-        next
-    }
-    
-    if (any(is.na(speech))) {
-        message("Line with NA in: ", file_path)
-        speech <- na.omit(speech)
-    }
+        speech <- readLines(file_path, warn = FALSE, encoding = "UTF-8")
+        
+        if (length(speech) == 0) {
+            message("File empty: ", file_path)
+            next
+        }
+        
+        if (any(is.na(speech))) {
+            message("Line with NA in: ", file_path)
+            speech <- na.omit(speech)
+        }
     
     # Create cleaned tibble for the current document
-    # temporal <- tibble(document = data_table$document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
-    temporal <- tibble(para_id = paste0(data_table$document[i], "_p", seq_along(speech)),document = data_table$document[i], original_file = data_table$origin_document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
+        # temporal <- tibble(document = data_table$document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
+        temporal <- tibble(para_id = paste0(data_table$document[i], "_p", seq_along(speech)),document = data_table$document[i], original_file = data_table$origin_document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
     
     # infoText <- bind_rows(infoText, temporal)
-    documents_list[[i]] <- temporal
+        documents_list[[i]] <- temporal
     }
 
     # Force factors with correct levels
