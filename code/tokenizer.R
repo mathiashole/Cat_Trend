@@ -57,4 +57,6 @@ if (ngram_str == "1" || ngram_str == "") {
 
     tokens_df <- tokens_df %>% filter(!is.na(word) & word != "")
 
+
+    return(tokens_df)
 }
