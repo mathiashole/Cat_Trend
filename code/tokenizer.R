@@ -46,7 +46,9 @@ generate_ngrams <- function(df, n) {
 ngram_str <- as.character(ngram_number)
 
 if (ngram_str == "1" || ngram_str == "") {
-
+    tokens_df <- paragraphs_df %>%
+        unnest_tokens(word, text) %>%
+        filter(!grepl("\\d+", word) & !(tolower(word) %in% stopwords_list))
 }
 
 }
