@@ -1,7 +1,9 @@
-# Module tokenizer text
+# module tokenizer text
 
 suppressPackageStartupMessages({
-library(tidyverse)
-library(tidytext)
-library(stopwords)
+    library(tidyverse)
+    library(tidytext)
+    library(stopwords)
 })
+
+tokenize_corpus <- function(paragraphs_df, language, ngram_number) {}
