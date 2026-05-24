@@ -30,6 +30,9 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
             message("Don't find the file: ", file_path) # Don't find the file, skip to next
             next
         }
+    
+    speech <- readLines(file_path, warn = FALSE)
+    
 
 
     return(infoText)
