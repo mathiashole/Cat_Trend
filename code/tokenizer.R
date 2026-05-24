@@ -52,28 +52,28 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
 tokenize_corpus <- function(paragraphs_df, language, ngram_number, custom_stopwords_path = NULL) {
     stopwords_list <- load_stopwords(language, custom_stopwords_path)
 
-# generate_ngrams <- function(df, n) {
-#     df %>%
-#         unnest_tokens(word, text, token = "ngrams", n = n) %>%
-#         separate(word, into = paste0("word", 1:n), sep = " ", fill = "right") %>%
-#         filter(across(starts_with("word"), ~ !is.na(.) & !grepl("\\d+", .) & !(tolower(.) %in% stopwords_list))) %>%
-#         unite(word, starts_with("word"), sep = " ")
-# }
+    # Internal function to proccess complex n-grams
+    generate_ngrams <- function(df, n) {
+        df %>%
+            unnest_tokens(word, text, token = "ngrams", n = n) %>%
+            separate(word, into = paste0("word", 1:n), sep = " ", fill = "right") %>%
+            filter(across(starts_with("word"), ~ !is.na(.) & !grepl("\\d+", .) & !(tolower(.) %in% stopwords_list))) %>%
+            unite(word, starts_with("word"), sep = " ")
+    }
 
     ngram_str <- as.character(ngram_number)
 
-if (ngram_str == "1" || ngram_str == "") {
-    tokens_df <- paragraphs_df %>%
-        unnest_tokens(word, text) %>%
-        filter(!grepl("\\d+", word) & !(tolower(word) %in% stopwords_list))
-} else if (ngram_str %in% c("2", "3", "4")) {
-    tokens_df <- generate_ngrams(paragraphs_df, as.numeric(ngram_str))
-} else {
-    stop("ERROR [Tokenizer]: Invalid number. Usage 1, 2, 3 o 4.")
-}
+    if (ngram_str == "1" || ngram_str == "") {
+        tokens_df <- paragraphs_df %>%
+            unnest_tokens(word, text) %>%
+            filter(!grepl("\\d+", word) & !(tolower(word) %in% stopwords_list))
+    } else if (ngram_str %in% c("2", "3", "4")) {
+        tokens_df <- generate_ngrams(paragraphs_df, as.numeric(ngram_str))
+    } else {
+        stop("ERROR [Tokenizer]: Invalid ngram value. Use 1, 2, 3 or 4.")
+    }
 
     tokens_df <- tokens_df %>% filter(!is.na(word) & word != "")
-
 
     return(tokens_df)
 }
