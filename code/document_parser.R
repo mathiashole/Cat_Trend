@@ -43,6 +43,12 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
         speech <- na.omit(speech)
     }
     
+    # Create cleaned tibble for the current document
+    temporal <- tibble(document = data_table$document[i], date = as.character(data_table$date[i]), paragraph_id = seq_along(speech), text = speech)
+    
+    infoText <- bind_rows(infoText, temporal)
+    }
+
 
 
     return(infoText)
