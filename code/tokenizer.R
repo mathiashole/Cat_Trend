@@ -12,6 +12,8 @@ if (tolower(language) == "sp") {
     stopwords_list <- stopwords(language = "es", source = "stopwords-iso")
 }  else if (tolower(language) == "en") {
     stopwords_list <- stopwords(language = "en", source = "stopwords-iso")
+} else {
+    stop("ERROR [Tokenizer]: Languague invalid 'SP' o 'EN'.")
 }
 
 }
