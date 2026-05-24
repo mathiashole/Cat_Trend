@@ -26,7 +26,8 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
 
             # Read file and process custom stopwords
             custom_words <- readLines(custom_stopwords_path, warn = FALSE) %>%
-                sapply(clean_general_text) %>%
+                vapply(clean_general_text, FUN.VALUE = character(1)) %>%
+                # sapply(clean_general_text) %>%
                 # tolower() %>%
                 trimws()
 
