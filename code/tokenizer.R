@@ -21,6 +21,14 @@ if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_sto
     if (file.exists(custom_stopwords_path)) {
         cat("[Tokenizer] Charge personalized stopword:", custom_stopwords_path, "\n")
 
+        # Read file and process custom stopwords
+        custom_words <- readLines(custom_stopwords_path, warn = FALSE) %>%
+            tolower() %>%
+            trimws()
+
+        # Merge with default stopwords and ensure uniqueness
+        stopwords_list <- unique(c(stopwords_list, custom_words))
+    }
 }
 
 
