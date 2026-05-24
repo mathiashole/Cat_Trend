@@ -1,3 +1,6 @@
 # Module document parser
 
-library(tidyverse)
+suppressPackageStartupMessages({
+    library(dplyr)
+    library(tibble)
+})
