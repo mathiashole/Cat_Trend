@@ -20,7 +20,7 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
     }
 
 # Integrate personalized stopwords
-if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_stopwords_path != "null") {
+if (!is.null(custom_stopwords_path) && nzchar(trimws(custom_stopwords_path)) && custom_stopwords_path != "null") {
     if (file.exists(custom_stopwords_path)) {
         cat("[Tokenizer] Charge personalized stopword:", custom_stopwords_path, "\n")
 
