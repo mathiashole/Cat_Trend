@@ -9,6 +9,7 @@ suppressPackageStartupMessages({
 source("code/clean_text.R")
 
 load_stopwords <- function(language, custom_stopwords_path = NULL) {
+    language <- tolower(language)
 # Charge stopwords list based on the language
 if (tolower(language) == "sp") {
     stopwords_list <- stopwords(language = "es", source = "stopwords-iso")
