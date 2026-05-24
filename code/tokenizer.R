@@ -31,6 +31,8 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
                 # tolower() %>%
                 trimws()
 
+            custom_words <- custom_words[custom_words != ""]
+
             # Merge with default stopwords and ensure uniqueness
             stopwords_list <- unique(c(stopwords_list, custom_words))
         } else {
