@@ -37,6 +37,7 @@ generate_ngrams <- function(df, n) {
     df %>%
         unnest_tokens(word, text, token = "ngrams", n = n) %>%
         separate(word, into = paste0("word", 1:n), sep = " ", fill = "right") %>%
+        filter(across(starts_with("word"), ~ !is.na(.) & !grepl("\\d+", .) & !(tolower(.) %in% stopwords_list))) %>%
 }
 
 
