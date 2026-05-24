@@ -53,6 +53,8 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     # infoText <- bind_rows(infoText, temporal)
         documents_list[[i]] <- temporal
     }
+    # Merge all documents into a single tibble
+    infoText <- bind_rows(documents_list)
 
     # Force factors with correct levels
     infoText <- infoText %>%
