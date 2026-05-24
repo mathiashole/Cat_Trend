@@ -19,23 +19,25 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
         stop("ERROR [Tokenizer]: Languague invalid 'SP' o 'EN'.")
     }
 
-# Integrate personalized stopwords
-if (!is.null(custom_stopwords_path) && nzchar(trimws(custom_stopwords_path)) && custom_stopwords_path != "null") {
-    if (file.exists(custom_stopwords_path)) {
-        cat("[Tokenizer] Charge personalized stopword:", custom_stopwords_path, "\n")
+    # Integrate personalized stopwords
+    if (!is.null(custom_stopwords_path) && nzchar(trimws(custom_stopwords_path)) && custom_stopwords_path != "null") {
+        if (file.exists(custom_stopwords_path)) {
+            cat("[Tokenizer] Charge personalized stopword:", custom_stopwords_path, "\n")
 
-        # Read file and process custom stopwords
-        custom_words <- readLines(custom_stopwords_path, warn = FALSE) %>%
-            sapply(clean_general_text) %>%
-            # tolower() %>%
-            trimws()
+            # Read file and process custom stopwords
+            custom_words <- readLines(custom_stopwords_path, warn = FALSE) %>%
+                sapply(clean_general_text) %>%
+                # tolower() %>%
+                trimws()
 
-        # Merge with default stopwords and ensure uniqueness
-        stopwords_list <- unique(c(stopwords_list, custom_words))
-    } else {
-        warning(paste("Don't find personalized stopword file:", custom_stopwords_path, ". We use stopword default."))
+            # Merge with default stopwords and ensure uniqueness
+            stopwords_list <- unique(c(stopwords_list, custom_words))
+        } else {
+            warning(paste("Don't find personalized stopword file:", custom_stopwords_path, ". We use stopword default."))
+        }
     }
-    }
+    return(stopwords_list)
+}
 
 # Internal function to proccess complex n-grams
 generate_ngrams <- function(df, n) {
