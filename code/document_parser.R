@@ -22,6 +22,8 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     # Initialize empty tibble to store paragraphs
     infoText <- tibble(document = character(), date = character(), paragraph_id = numeric(), text = character())
 
+    document_list <- vector(mode = "list", length = nrow(data_table))
+
     # Loop per document to read and parse into paragraphs
     for (i in seq_along(data_table$origin_document)) {
         file_path <- file.path(directory, data_table$origin_document[i])
