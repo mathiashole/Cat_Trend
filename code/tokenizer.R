@@ -26,7 +26,8 @@ if (!is.null(custom_stopwords_path) && nzchar(trimws(custom_stopwords_path)) && 
 
         # Read file and process custom stopwords
         custom_words <- readLines(custom_stopwords_path, warn = FALSE) %>%
-            tolower() %>%
+            sapply(clean_general_text) %>%
+            # tolower() %>%
             trimws()
 
         # Merge with default stopwords and ensure uniqueness
