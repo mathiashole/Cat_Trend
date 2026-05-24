@@ -28,6 +28,8 @@ if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_sto
 
         # Merge with default stopwords and ensure uniqueness
         stopwords_list <- unique(c(stopwords_list, custom_words))
+    } else {
+        warning(paste("Don't find personalized stopword file:", custom_stopwords_path, ". We use stopword default."))
     }
 }
 
