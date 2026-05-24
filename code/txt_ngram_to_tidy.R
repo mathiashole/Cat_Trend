@@ -5,7 +5,7 @@ source("code/clean_text.R")
 source("code/document_parser.R")
 source("code/tokenizer.R")
 
-main_process_texts <- function(directory, language, ngram_number, date_hour) {
+main_process_texts <- function(directory, language, ngram_number, date_hour, output_dir, custom_stopwords = NULL) {
 
 # Function to remove accent marks from a text
 remove_accents <- function(texto) {
