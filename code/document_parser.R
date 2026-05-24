@@ -37,6 +37,12 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
         message("File empty: ", file_path)
         next
     }
+    
+    if (any(is.na(speech))) {
+        message("Line with NA in: ", file_path)
+        speech <- na.omit(speech)
+    }
+    
 
 
     return(infoText)
