@@ -20,7 +20,7 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
     data_table$document <- sapply(data_table$origin_document, normalize_document_name)
 
     # Initialize empty tibble to store paragraphs
-    infoText <- tibble(document = character(), date = character(), paragraph_id = numeric(), text = character())
+    # infoText <- tibble(document = character(), date = character(), paragraph_id = numeric(), text = character())
 
     documents_list <- vector(mode = "list", length = nrow(data_table))
 
