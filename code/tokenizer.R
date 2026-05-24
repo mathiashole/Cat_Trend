@@ -31,6 +31,11 @@ if (!is.null(custom_stopwords_path) && custom_stopwords_path != "" && custom_sto
     } else {
         warning(paste("Don't find personalized stopword file:", custom_stopwords_path, ". We use stopword default."))
     }
+
+# Internal function to proccess complex n-grams
+generate_ngrams <- function(df, n) {
+    df %>%
+
 }
 
 
