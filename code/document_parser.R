@@ -58,7 +58,7 @@ parse_documents_to_paragraphs <- function(directory, data_table_path) {
 
     # Force factors with correct levels
     infoText <- infoText %>%
-        mutate(document = factor(document, levels = unique(document)), date = factor(date))
+        mutate(document = factor(document, levels = unique(document)), date = factor(date, levels = unique(date)))
 
     return(infoText)
 }
