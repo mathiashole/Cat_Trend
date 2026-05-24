@@ -49,6 +49,8 @@ if (ngram_str == "1" || ngram_str == "") {
     tokens_df <- paragraphs_df %>%
         unnest_tokens(word, text) %>%
         filter(!grepl("\\d+", word) & !(tolower(word) %in% stopwords_list))
+} else if (ngram_str %in% c("2", "3", "4")) {
+    tokens_df <- generate_ngrams(paragraphs_df, as.numeric(ngram_str))
 }
 
 }
