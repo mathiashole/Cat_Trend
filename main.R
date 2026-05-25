@@ -57,3 +57,16 @@ custom_stopwords <- config$text_processing$custom_stopwords
 
 project_name <- config$project$name
 
+# ------------------------------ Validate required configuration ------------------------------
+
+if (is.null(directory)) {
+    stop("ERROR: input$directory missing in YAML")
+}
+
+if (is.null(language)) {
+    stop("ERROR: language$selected missing in YAML")
+}
+
+if (is.null(ngram_number)) {
+    stop("ERROR: text_processing$ngram missing in YAML")
+}
