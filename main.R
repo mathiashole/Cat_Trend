@@ -144,3 +144,18 @@ main_process_texts(
     output_dir = processed_dir,
     custom_stopwords = custom_stopwords
 )
+
+# ------------------------------ STEP 3 — Frequency analysis ------------------------------
+
+if (isTRUE(config$analysis$frequency)) {
+
+    cat("\n🧮 Running frequency analysis...\n")
+
+    analyze_frequency(
+        input_dir = processed_dir,
+        output_dir = analysis_dir,
+        plots_dir = plots_dir
+    )
+}
+
+
