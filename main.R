@@ -98,3 +98,9 @@ output_dir <- file.path(
     project_name,
     timestamp
 )
+
+metadata_dir <- file.path(output_dir, "metadata")
+processed_dir <- file.path(output_dir, "processed")
+analysis_dir <- file.path(output_dir, "analysis")
+plots_dir <- file.path(output_dir, "plots")
+
