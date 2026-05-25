@@ -110,3 +110,10 @@ dir.create(analysis_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(plots_dir, recursive = TRUE, showWarnings = FALSE)
 
 cat("📂 Output directory:", output_dir, "\n")
+
+# ------------------------------ Save config used ------------------------------
+
+file.copy(
+    config_file,
+    file.path(output_dir, "config_used.yaml")
+)
