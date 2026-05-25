@@ -34,3 +34,14 @@ if ("--config" %in% args) {
 
     config_file <- args[config_index]
 }
+
+# ------------------------------ Validate config file ------------------------------
+
+if (!file.exists(config_file)) {
+    stop(paste("ERROR: Config file does not exist:", config_file))
+}
+
+cat("📄 Loading config:", config_file, "\n")
+
+config <- yaml::read_yaml(config_file)
+
