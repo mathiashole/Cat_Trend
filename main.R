@@ -45,3 +45,15 @@ cat("📄 Loading config:", config_file, "\n")
 
 config <- yaml::read_yaml(config_file)
 
+# ------------------------------ Read configuration values ------------------------------
+
+directory <- config$input$directory
+
+language <- config$language$selected
+
+ngram_number <- config$text_processing$ngram
+
+custom_stopwords <- config$text_processing$custom_stopwords
+
+project_name <- config$project$name
+
