@@ -117,3 +117,7 @@ file.copy(
     config_file,
     file.path(output_dir, "config_used.yaml")
 )
+
+# ------------------------------ Start pipeline ------------------------------
+
+cat("\n🔄 Starting pipeline\n")
