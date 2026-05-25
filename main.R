@@ -158,4 +158,13 @@ if (isTRUE(config$analysis$frequency)) {
     )
 }
 
+# ------------------------------ STEP 4 — Category analysis ------------------------------
+
+if (isTRUE(config$analysis$categories)) {
+
+    cat("\n📚 Category analysis enabled\n")
+
+    # Future implementation
+}
+
 
