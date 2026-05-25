@@ -167,7 +167,6 @@ if (isTRUE(config$analysis$categories)) {
     # Future implementation
 }
 
-
 # ------------------------------ Finish ------------------------------
 
 cat("\n✅ Pipeline completed successfully.\n")
