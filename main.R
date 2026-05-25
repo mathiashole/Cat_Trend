@@ -18,4 +18,9 @@ source("code/txt_ngram_to_tidy.R")
 # Analysis
 source("code/txt_frequency.R")
 
+# ------------------------------ Read command line arguments ------------------------------
+
+args <- commandArgs(trailingOnly = TRUE)
+
+config_file <- "config/default.yaml"
 
