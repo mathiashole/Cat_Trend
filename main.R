@@ -168,3 +168,6 @@ if (isTRUE(config$analysis$categories)) {
 }
 
 
+# ------------------------------ Finish ------------------------------
+
+cat("\n✅ Pipeline completed successfully.\n")
