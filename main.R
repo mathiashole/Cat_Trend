@@ -104,3 +104,9 @@ processed_dir <- file.path(output_dir, "processed")
 analysis_dir <- file.path(output_dir, "analysis")
 plots_dir <- file.path(output_dir, "plots")
 
+dir.create(metadata_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(analysis_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(plots_dir, recursive = TRUE, showWarnings = FALSE)
+
+cat("📂 Output directory:", output_dir, "\n")
