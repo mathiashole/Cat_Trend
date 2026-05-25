@@ -70,3 +70,18 @@ if (is.null(language)) {
 if (is.null(ngram_number)) {
     stop("ERROR: text_processing$ngram missing in YAML")
 }
+
+# ------------------------------ Load packages ------------------------------
+
+required_packages <- c(
+    "stringr",
+    "lubridate",
+    "tidytext",
+    "stopwords",
+    "tidyverse",
+    "ggplot2",
+    "yaml"
+)
+
+manage_packages(required_packages)
+
