@@ -121,3 +121,13 @@ file.copy(
 # ------------------------------ Start pipeline ------------------------------
 
 cat("\n🔄 Starting pipeline\n")
+
+# ------------------------------ STEP 1 — Extract metadata and dates ------------------------------
+
+cat("\n📅 Extracting document metadata...\n")
+
+main_get_time(
+    directory = directory,
+    date_hour = timestamp,
+    output_dir = metadata_dir
+)
