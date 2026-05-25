@@ -24,3 +24,13 @@ args <- commandArgs(trailingOnly = TRUE)
 
 config_file <- "config/default.yaml"
 
+if ("--config" %in% args) {
+
+    config_index <- which(args == "--config") + 1
+
+    if (config_index > length(args)) {
+        stop("ERROR: Missing config file after --config")
+    }
+
+    config_file <- args[config_index]
+}
