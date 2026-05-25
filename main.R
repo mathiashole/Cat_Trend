@@ -85,3 +85,16 @@ required_packages <- c(
 
 manage_packages(required_packages)
 
+# ------------------------------ Create project structure ------------------------------
+
+if (is.null(project_name) || project_name == "") {
+    project_name <- "default_project"
+}
+
+timestamp <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
+
+output_dir <- file.path(
+    "results",
+    project_name,
+    timestamp
+)
