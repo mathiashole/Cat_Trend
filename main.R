@@ -131,3 +131,16 @@ main_get_time(
     date_hour = timestamp,
     output_dir = metadata_dir
 )
+
+# ------------------------------ STEP 2 — Parse and tokenize corpus ------------------------------
+
+cat("\n📚 Processing corpus...\n")
+
+main_process_texts(
+    directory = directory,
+    language = language,
+    ngram_number = ngram_number,
+    date_hour = timestamp,
+    output_dir = processed_dir,
+    custom_stopwords = custom_stopwords
+)
