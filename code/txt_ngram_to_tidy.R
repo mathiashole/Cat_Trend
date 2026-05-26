@@ -6,5 +6,6 @@ source("code/document_parser.R")
 source("code/tokenizer.R")
 
 main_process_texts <- function(directory, language, ngram_number, date_hour, output_dir, custom_stopwords = NULL) {
+  cat("[1/3] Parsing documents into structured tables...\n")
 
 }
