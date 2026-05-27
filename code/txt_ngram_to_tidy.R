@@ -11,3 +11,5 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
     metadata_file <- file.path(output_dir, paste0("data_table_", date_hour, ".txt"))
 
 }
+
+# Other function
