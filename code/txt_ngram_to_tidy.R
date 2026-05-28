@@ -32,6 +32,7 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
   # Generic reusable token table
   write.table(tokens_df, file = file.path(output_dir, "tokens.tsv"), row.names = FALSE, sep = "\t", quote = FALSE)
 
+  return(tokens_df)
 
 }
 
