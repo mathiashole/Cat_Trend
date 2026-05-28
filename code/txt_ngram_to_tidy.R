@@ -18,6 +18,9 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
 
     write.table(paragraphs_df, file = paragraphs_output, row.names = FALSE, sep = "\t", quote = FALSE)
 
+  cat("[2/3] Tokenizing and removing stopwords (N-grams:", ngram_number,")...\n")
+
+
 }
 
 # Other function
