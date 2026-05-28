@@ -35,5 +35,3 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
   return(tokens_df)
 
 }
-
-# Other function
