@@ -13,6 +13,8 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
     # Step A: Generate structured paragraph dataframe
     paragraphs_df <- parse_documents_to_paragraphs(directory, metadata_file)
 
+    # Save intermediate paragraph structure
+
 }
 
 # Other function
