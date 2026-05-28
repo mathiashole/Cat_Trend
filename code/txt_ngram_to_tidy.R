@@ -21,6 +21,7 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
   cat("[2/3] Tokenizing and removing stopwords (N-grams:", ngram_number,")...\n")
 
   # Step B: Generate tokens
+  tokens_df <- tokenize_corpus(paragraphs_df, language, ngram_number, custom_stopwords_path = custom_stopwords)
 
 
 }
