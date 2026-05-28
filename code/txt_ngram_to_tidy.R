@@ -27,6 +27,8 @@ main_process_texts <- function(directory, language, ngram_number, date_hour, out
   # Main token output
   words_output <- file.path(output_dir, paste0("words_", date_hour, ".txt"))
 
+  write.table(tokens_df, file = words_output, row.names = FALSE, col.names = TRUE, sep = "\t", quote = FALSE)
+
 
 }
 
