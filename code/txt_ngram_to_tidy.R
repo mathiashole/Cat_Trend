@@ -8,7 +8,7 @@ source("code/tokenizer.R")
 main_process_texts <- function(directory, language, ngram_number, date_hour, metadata_dir, output_dir, custom_stopwords = NULL) {
   cat("[1/3] Parsing documents into structured tables...\n")
 
-  metadata_file <- file.path(output_dir, paste0("data_table_", date_hour, ".txt"))
+  # metadata_file <- file.path(output_dir, paste0("data_table_", date_hour, ".txt"))
 
   # Step A: Generate structured paragraph dataframe
   paragraphs_df <- parse_documents_to_paragraphs(directory, metadata_file)
