@@ -143,11 +143,11 @@ if (isTRUE(config$analysis$frequency)) {
 
     cat("\n🧮 Running frequency analysis...\n")
 
-    analyze_frequency(
-        input_dir = processed_dir,
-        output_dir = analysis_dir,
-        plots_dir = plots_dir
-    )
+    # analyze_frequency(
+    #     input_dir = processed_dir,
+    #     output_dir = analysis_dir,
+    #     plots_dir = plots_dir
+    # )
 }
 
 # ------------------------------ STEP 4 — Category analysis ------------------------------
