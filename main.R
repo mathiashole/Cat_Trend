@@ -148,6 +148,12 @@ if (isTRUE(config$analysis$frequency)) {
     #     output_dir = analysis_dir,
     #     plots_dir = plots_dir
     # )
+
+    analyze_frequency(
+        tokens_df = tokens_df,
+        output_dir = analysis_dir,
+        plots_dir = plots_dir
+    )
 }
 
 # ------------------------------ STEP 4 — Category analysis ------------------------------
