@@ -133,6 +133,7 @@ tokens_df <- main_process_texts(
     language = language,
     ngram_number = ngram_number,
     date_hour = timestamp,
+    metadata_dir = metadata_dir,
     output_dir = processed_dir,
     custom_stopwords = custom_stopwords
 )
