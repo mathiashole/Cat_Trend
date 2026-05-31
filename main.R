@@ -128,7 +128,7 @@ main_get_time(
 
 cat("\n📚 Processing corpus...\n")
 
-main_process_texts(
+tokens_df <- main_process_texts(
     directory = directory,
     language = language,
     ngram_number = ngram_number,
