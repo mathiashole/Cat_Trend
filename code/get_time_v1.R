@@ -19,13 +19,7 @@ extract_date_from_filename <- function(file_path) {
   day_month <- "\\d{1,2}"
   year_4 <- "\\d{4}"
   year_2 <- "\\d{2}"
-  # Some common date patterns in file names
-  patterns <- c(
-    "\\d{2}_\\d{2}_\\d{4}",
-    "\\d{2}-\\d{2}-\\d{4}",
-    "\\d{4}-\\d{2}-\\d{2}",
-    "\\d{2}_\\d{2}_\\d{2}"
-  )
+
   # Only two master patterns to capture the date components
   patterns <- c(
     # Patterns A: format DD/MM/YYYY o D/M/YY (day/month goes first)
