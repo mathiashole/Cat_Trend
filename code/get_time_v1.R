@@ -1,5 +1,9 @@
 #!/usr/bin/env Rscript
 
+library(tidyverse)
+library(stringr)
+library(lubridate)
+
 # Load functions from functions.R
 timeline_script <- file.path("code", "timeline_plot.R")
 plotting_script <- file.path("code", "plotting.R")
