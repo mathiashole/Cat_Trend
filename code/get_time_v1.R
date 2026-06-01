@@ -11,7 +11,9 @@ if (file.exists(timeline_script)) source(timeline_script)
 if (file.exists(plotting_script)) source(plotting_script)
 
 # 1. ---------- Search date in file names ----------
-extract_date_from_filename <- function(file_path) {}
+extract_date_from_filename <- function(file_path) {
+  file_name <- basename(file_path)
+}
 
 # Encapsulate program in a function
 main_get_time <- function(directory, date_hour) {
