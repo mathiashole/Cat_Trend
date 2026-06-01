@@ -26,6 +26,11 @@ extract_date_from_filename <- function(file_path) {
     "\\d{4}-\\d{2}-\\d{2}",
     "\\d{2}_\\d{2}_\\d{2}"
   )
+  # Only two master patterns to capture the date components
+  patterns <- c(
+
+  )
+
 }
 
 # Encapsulate program in a function
