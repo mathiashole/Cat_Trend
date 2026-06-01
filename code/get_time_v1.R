@@ -31,7 +31,8 @@ extract_date_from_filename <- function(file_path) {
     # Patterns A: format DD/MM/YYYY o D/M/YY (day/month goes first)
     paste0("\\b", day_month, sep, day_month, sep, "(?:", year_4, "|", year_2, ")\\b"),
     
-
+    # Patterns B: international type format YYYY/MM/DD o YYYY/M/D (Year goes first)
+    paste0("\\b", year_4, sep, day_month, sep, day_month, "\\b")
   )
 
 }
