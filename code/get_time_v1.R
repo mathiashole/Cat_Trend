@@ -13,6 +13,13 @@ if (file.exists(plotting_script)) source(plotting_script)
 # 1. ---------- Search date in file names ----------
 extract_date_from_filename <- function(file_path) {
   file_name <- basename(file_path)
+  # Some common date patterns in file names
+  patterns <- c(
+    "\\d{2}_\\d{2}_\\d{4}",
+    "\\d{2}-\\d{2}-\\d{4}",
+    "\\d{4}-\\d{2}-\\d{2}",
+    "\\d{2}_\\d{2}_\\d{2}"
+  )
 }
 
 # Encapsulate program in a function
