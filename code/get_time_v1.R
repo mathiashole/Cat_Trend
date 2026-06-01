@@ -7,6 +7,8 @@ library(lubridate)
 # Load functions from functions.R
 timeline_script <- file.path("code", "timeline_plot.R")
 plotting_script <- file.path("code", "plotting.R")
+if (file.exists(timeline_script)) source(timeline_script)
+if (file.exists(plotting_script)) source(plotting_script)
 source(timeline_script)
 source(plotting_script)
 
