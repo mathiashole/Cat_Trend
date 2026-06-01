@@ -28,6 +28,9 @@ extract_date_from_filename <- function(file_path) {
   )
   # Only two master patterns to capture the date components
   patterns <- c(
+    # Patterns A: format DD/MM/YYYY o D/M/YY (day/month goes first)
+    paste0("\\b", day_month, sep, day_month, sep, "(?:", year_4, "|", year_2, ")\\b"),
+    
 
   )
 
