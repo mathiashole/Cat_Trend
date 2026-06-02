@@ -36,6 +36,8 @@ extract_date_from_filename <- function(file_path) {
       # 💡 normalized all string
       hit_normalized <- gsub("[\\s_\\-\\/]+", "/", hit)
       
+      # Parsing with lubridate trying both formats
+      parsed <- suppressWarnings(lubridate::dmy(hit_normalized))
 
     }
   }
