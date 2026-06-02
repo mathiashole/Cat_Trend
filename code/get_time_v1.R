@@ -45,7 +45,7 @@ extract_date_from_filename <- function(file_path) {
       }
     }
   }
-
+  return(NA_character_)
 }
 
 # Encapsulate program in a function
