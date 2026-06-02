@@ -29,6 +29,10 @@ extract_date_from_filename <- function(file_path) {
     paste0("\\b", year_4, sep, day_month, sep, day_month, "\\b")
   )
 
+  for (pattern in patterns) {
+
+  }
+
 }
 
 # Encapsulate program in a function
