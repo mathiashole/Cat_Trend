@@ -38,7 +38,11 @@ extract_date_from_filename <- function(file_path) {
       
       # Parsing with lubridate trying both formats
       parsed <- suppressWarnings(lubridate::dmy(hit_normalized))
-
+      if (is.na(parsed)) parsed <- suppressWarnings(lubridate::ymd(hit_normalized))
+      
+      if (!is.na(parsed)) {
+        return(format(parsed, "%d/%m/%Y"))
+      }
     }
   }
 
