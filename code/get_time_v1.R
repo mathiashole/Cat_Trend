@@ -32,7 +32,9 @@ extract_date_from_filename <- function(file_path) {
   for (pattern in patterns) {
     hit <- stringr::str_extract(file_name, pattern)
     
+    if (!is.na(hit)) {
 
+    }
   }
 
 }
