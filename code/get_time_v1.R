@@ -59,6 +59,8 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
     return(text)
   }
 
+  lines <- readLines(file_path, n = max_lines, warn = FALSE)
+
   return(NA_character_)
 }
 
