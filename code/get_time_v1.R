@@ -55,7 +55,8 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
 
   normalize_months <- function(text) {
     text <- gsub("setiembre", "septiembre", text, ignore.case = TRUE)
-
+    text <- gsub("\\bsep\\.?\\b", "septiembre", text, ignore.case = TRUE)
+    return(text)
   }
 
   return(NA_character_)
