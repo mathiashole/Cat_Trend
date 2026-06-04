@@ -63,6 +63,7 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
   lines <- iconv(lines, from = "latin1", to = "UTF-8", sub = "")
 
   for (line in lines) {
+    line_cleaned <- gsub("(?<=[0-9])\\,|\\,(?=[0-9])", ", ", line, perl = TRUE)
 
   }
 
