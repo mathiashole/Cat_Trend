@@ -68,6 +68,9 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
     line_cleaned <- gsub(":", ": ", line_cleaned)
     line_cleaned <- gsub("(?<=\\D)\\bde\\b(?=\\d)", "", line_cleaned, perl = TRUE)
 
+    date_in_line_es <- str_extract(line_cleaned, date_pattern_es)
+    date_in_line_en <- str_extract(line_cleaned, date_pattern_en)
+
   }
 
   return(NA_character_)
