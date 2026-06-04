@@ -60,6 +60,7 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
   }
 
   lines <- readLines(file_path, n = max_lines, warn = FALSE)
+  lines <- iconv(lines, from = "latin1", to = "UTF-8", sub = "")
 
   return(NA_character_)
 }
