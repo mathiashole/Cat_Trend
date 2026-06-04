@@ -71,6 +71,9 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
     date_in_line_es <- str_extract(line_cleaned, date_pattern_es)
     date_in_line_en <- str_extract(line_cleaned, date_pattern_en)
 
+    if (!is.na(date_in_line_es)) {
+
+    }
   }
 
   return(NA_character_)
