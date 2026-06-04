@@ -76,6 +76,7 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
       parsed_date <- dmy(date_in_line_es, quiet = TRUE)
       if (!is.na(parsed_date)) return(format(parsed_date, "%d/%m/%Y"))
     }
+
   }
 
   return(NA_character_)
