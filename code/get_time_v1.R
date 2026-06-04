@@ -66,6 +66,7 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
     line_cleaned <- gsub("(?<=[0-9])\\,|\\,(?=[0-9])", ", ", line, perl = TRUE)
     line_cleaned <- gsub("(?<=[A-Za-z])\\:+|\\:+(?=[A-Za-z])", "", line_cleaned, perl = TRUE)
     line_cleaned <- gsub(":", ": ", line_cleaned)
+    line_cleaned <- gsub("(?<=\\D)\\bde\\b(?=\\d)", "", line_cleaned, perl = TRUE)
 
   }
 
