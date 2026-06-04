@@ -48,6 +48,11 @@ extract_date_from_filename <- function(file_path) {
   return(NA_character_)
 }
 
+extract_data_from_content <- function(file_path) {
+  # This function will be defined later, but it will search for dates in the content of the file
+  return(NA_character_)
+}
+
 # Encapsulate program in a function
 main_get_time <- function(directory, date_hour) {
 
