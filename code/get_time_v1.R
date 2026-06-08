@@ -99,7 +99,7 @@ extract_document_date <- function(file_path) {
         return(date_found)
   }
 
-  return("Date not found")
+  return(NA_character_)
 }
 
 # Encapsulate program in a function
