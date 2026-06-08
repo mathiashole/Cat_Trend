@@ -93,6 +93,8 @@ extract_document_date <- function(file_path) {
         return(date_found)
   }
 
+  date_found <- extract_date_from_content(file_path)
+
 }
 
 # Encapsulate program in a function
