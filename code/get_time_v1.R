@@ -85,6 +85,10 @@ extract_data_from_content <- function(file_path, max_lines = 10) {
   return(NA_character_)
 }
 
+extract_document_date <- function(file_path) {
+
+}
+
 # Encapsulate program in a function
 main_get_time <- function(directory, date_hour) {
 
