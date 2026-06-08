@@ -95,6 +95,10 @@ extract_document_date <- function(file_path) {
 
   date_found <- extract_date_from_content(file_path)
 
+  if (!is.na(date_found)) {
+        return(date_found)
+  }
+
 }
 
 # Encapsulate program in a function
