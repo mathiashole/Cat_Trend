@@ -106,6 +106,8 @@ main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan =
 
   files <- list.files(directory, pattern = "\\.txt$", full.names = TRUE)
 
+  results <- lapply(files, function(file) {})
+
 }
 
 # # Encapsulate program in a function
