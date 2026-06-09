@@ -94,6 +94,15 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
       ))
   }
 
+  # Plot words by year
+  word_per_year_plot <- plot_words_per_year(
+    temporal_df, 
+    title = "Frequency Distribution of Terms by Year", 
+    xlab = "Year", 
+    ylab = "Total Words"
+  )
+
+
 }
 
 # Main function of frequency analyze
