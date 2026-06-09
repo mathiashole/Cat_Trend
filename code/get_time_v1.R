@@ -104,6 +104,8 @@ extract_document_date <- function(file_path) {
 
 main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan = 15) {
 
+  files <- list.files(directory, pattern = "\\.txt$", full.names = TRUE)
+
 }
 
 # # Encapsulate program in a function
