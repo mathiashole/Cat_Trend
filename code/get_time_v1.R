@@ -85,9 +85,9 @@ extract_date_from_content <- function(file_path, max_lines = 10) {
   return(NA_character_)
 }
 
-extract_document_date <- function(file_path) {
+extract_document_date <- function(file_path, max_lines = 10) {
 
-  date_found <- extract_date_from_filename(file_path)
+  date_found <- extract_date_from_filename(file_path, max_lines = max_lines)
   
   if (!is.na(date_found)) {
         return(date_found)
