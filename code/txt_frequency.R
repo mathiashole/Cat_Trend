@@ -63,7 +63,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     xlab = "Rank", 
     ylab = "Term frequency n/total"
   )
-
+  
+  save_plot_to_pdf(zipfs_law_plot, file.path(plots_dir, "zipfs_law.pdf"))
 
 }
 
