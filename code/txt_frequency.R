@@ -83,6 +83,12 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   cat("→ [3/3] Exporting temporal analysis data and tables...\n")
 
+  # MMake a temporal dataframe to plot words by year and by document
+  temporal_df <- tokens_df
+  if ("date" %in% colnames(temporal_df)) {
+
+  }
+
 }
 
 # Main function of frequency analyze
