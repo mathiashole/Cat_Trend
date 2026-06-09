@@ -106,7 +106,9 @@ main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan =
 
   files <- list.files(directory, pattern = "\\.txt$", full.names = TRUE)
 
-  results <- lapply(files, function(file) {})
+  results <- lapply(files, function(file) {
+    date_res <- extract_document_date(file)
+  })
 
 }
 
