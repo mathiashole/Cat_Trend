@@ -114,6 +114,17 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   save_plot_to_pdf(word_per_year_and_doc_plot, file.path(plots_dir, "total_word_by_year_and_documents.pdf"))
 
+  # ------------------------------ Export Data ------------------------------
+  # Save the result to a file
+  write.table(
+    docs_words,
+    file = file.path(output_dir, "documents_words_metrics.tsv"),
+    row.names = FALSE,
+    sep = "\t",
+    quote = FALSE
+  )
+
+
 }
 
 # Main function of frequency analyze
