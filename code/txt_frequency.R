@@ -53,7 +53,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     xlab = "Term frequency n/total", 
     ylab = "Count"
   )
-
+  
+  save_plot_to_pdf(term_frequency_plot, file.path(plots_dir, "term_frequency.pdf"))
 
 }
 
