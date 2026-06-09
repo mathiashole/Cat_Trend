@@ -33,6 +33,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ungroup()
 
   # ------------------------------ Plotting Section ------------------------------
+  
   cat("  → [2/3] Generating frequency and TF-IDF visualizations...\n")
 
 }
