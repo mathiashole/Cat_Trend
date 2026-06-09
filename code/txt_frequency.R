@@ -14,6 +14,12 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
   cat("→ [1/3] Calculating term frequencies, totals and Zipf rankings...\n")
 
+  #1.Count term frequency in each book/document
+  docs_words <- tokens_df %>% 
+    count(document, word, sort = TRUE)
+  
+
+
 }
 
 # Main function of frequency analyze
