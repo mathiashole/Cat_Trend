@@ -86,6 +86,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   # MMake a temporal dataframe to plot words by year and by document
   temporal_df <- tokens_df
   if ("date" %in% colnames(temporal_df)) {
+    # Extract year from date if it's in a recognizable format, otherwise try to parse it
+    temporal_df <- temporal_df %>%
 
   }
 
