@@ -70,6 +70,12 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   docs_words <- docs_words %>%
     bind_tf_idf(word, document, n)
     
+  tf_idf_plot <- plot_tf_idf(
+    docs_words, 
+    title = "Top 10 Words by TF-IDF", 
+    xlab = NULL, 
+    ylab = "TF-IDF"
+  )
 
 
 }
