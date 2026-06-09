@@ -79,6 +79,10 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   save_plot_to_pdf(tf_idf_plot, file.path(plots_dir, "tf_idf.pdf"))
 
+  # ------------------------------ Temporal Section ------------------------------
+  
+  cat("→ [3/3] Exporting temporal analysis data and tables...\n")
+
 }
 
 # Main function of frequency analyze
