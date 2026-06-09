@@ -46,6 +46,15 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   save_plot_to_pdf(top_10_plot, file.path(plots_dir, "most_frequent_words.pdf"))
 
+  # Plot term frequency distribution
+  term_frequency_plot <- plot_term_frequency(
+    docs_words, 
+    title = "Term frequency distribution", 
+    xlab = "Term frequency n/total", 
+    ylab = "Count"
+  )
+
+
 }
 
 # Main function of frequency analyze
