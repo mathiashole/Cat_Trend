@@ -1,5 +1,10 @@
 #!/usr/bin/env Rscript
 
+# ------------------------------ Load libraries ------------------------------
+library(tidyverse)
+library(tidytext)
+library(lubridate)
+
 # Source the plotting script
 source("code/plotting.R")
 
