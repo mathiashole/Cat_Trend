@@ -32,6 +32,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     slice_max(order_by = n, n = 10, with_ties = FALSE) %>%
     ungroup()
 
+  # ------------------------------ Plotting Section ------------------------------
+  cat("  → [2/3] Generating frequency and TF-IDF visualizations...\n")
+
 }
 
 # Main function of frequency analyze
