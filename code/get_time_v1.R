@@ -113,6 +113,8 @@ main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan =
 
   })
 
+  metadata_df <- bind_rows(results)
+
 }
 
 # # Encapsulate program in a function
