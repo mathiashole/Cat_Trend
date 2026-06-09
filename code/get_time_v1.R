@@ -117,6 +117,8 @@ main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan =
 
   output_file <- file.path(output_dir, paste0("data_table_", date_hour, ".txt"))
 
+  write.table(metadata_df, output_file, sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
+
 }
 
 # # Encapsulate program in a function
