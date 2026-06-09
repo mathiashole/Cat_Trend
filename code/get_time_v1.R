@@ -107,7 +107,7 @@ main_get_time <- function(directory, date_hour, output_dir, max_lines_to_scan = 
   files <- list.files(directory, pattern = "\\.txt$", full.names = TRUE)
 
   results <- lapply(files, function(file) {
-    date_res <- extract_document_date(file)
+    date_res <- extract_document_date(file, max_lines = max_lines_to_scan)
 
     tibble(document = file, date = date_res)
 
