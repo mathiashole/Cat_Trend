@@ -108,6 +108,9 @@ main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan =
 
   results <- lapply(files, function(file) {
     date_res <- extract_document_date(file)
+
+    tibble(document = file, date = date_res)
+
   })
 
 }
