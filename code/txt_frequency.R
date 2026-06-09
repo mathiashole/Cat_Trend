@@ -10,7 +10,11 @@ source("code/plotting.R")
 
 #------------------------------ Main functions -------------------------------
 
-analyze_frequency <- function(tokens_df, output_dir, plots_dir) {}
+analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
+
+  cat("→ [1/3] Calculating term frequencies, totals and Zipf rankings...\n")
+
+}
 
 # Main function of frequency analyze
 analyze_frequency <- function(date_hour) {
