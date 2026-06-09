@@ -102,7 +102,7 @@ extract_document_date <- function(file_path) {
   return(NA_character_)
 }
 
-main_get_time <- function(directory, daate_hour, output_dir, max_lines_to_scan = 15) {
+main_get_time <- function(directory, date_hour, output_dir, max_lines_to_scan = 15) {
 
   files <- list.files(directory, pattern = "\\.txt$", full.names = TRUE)
 
