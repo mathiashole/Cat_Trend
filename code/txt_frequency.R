@@ -88,7 +88,10 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   if ("date" %in% colnames(temporal_df)) {
     # Extract year from date if it's in a recognizable format, otherwise try to parse it
     temporal_df <- temporal_df %>%
-
+      mutate(year = case_when(
+        is.numeric(date) ~ as.integer(date),
+        TRUE ~ as.integer(lubridate::year(lubridate::dmy(as.character(date))))
+      ))
   }
 
 }
