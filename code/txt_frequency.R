@@ -101,7 +101,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     xlab = "Year", 
     ylab = "Total Words"
   )
-
+  
+  save_plot_to_pdf(word_per_year_plot, file.path(plots_dir, "total_word_by_year.pdf"))
 
 }
 
