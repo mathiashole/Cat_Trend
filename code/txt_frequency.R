@@ -76,7 +76,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     xlab = NULL, 
     ylab = "TF-IDF"
   )
-
+  
+  save_plot_to_pdf(tf_idf_plot, file.path(plots_dir, "tf_idf.pdf"))
 
 }
 
