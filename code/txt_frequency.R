@@ -8,6 +8,10 @@ library(lubridate)
 # Source the plotting script
 source("code/plotting.R")
 
+#------------------------------ Main functions -------------------------------
+
+analyze_frequency <- function(tokens_df, output_dir, plots_dir) {}
+
 # Main function of frequency analyze
 analyze_frequency <- function(date_hour) {
   
