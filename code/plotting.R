@@ -9,7 +9,7 @@ suppressPackageStartupMessages({
 # Function to plot the frequency distribution of terms
 plot_term_frequency <- function(docs_words, title="Term Frequency Distribution", xlab="Terms Frequency", ylab="Count") {
   ggplot(data = docs_words, aes(n/total, fill = document)) +
-    geom_histogram(show.legend = FALSE) +
+    geom_histogram(show.legend = FALSE, bins = 30) +
     facet_wrap(~document, ncol = 3, scales = "free_y") +
     ggtitle(title) +
     xlab(xlab) +
