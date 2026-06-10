@@ -94,6 +94,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   #     ))
   # }
 
+  temporal_df <- tokens_df %>%
+
+
   # Plot words by year
   word_per_year_plot <- plot_words_per_year(
     temporal_df, 
