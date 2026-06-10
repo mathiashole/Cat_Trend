@@ -20,8 +20,9 @@ plot_term_frequency <- function(docs_words, title="Term Frequency Distribution",
 # Function to apply Zipf's Law and graph
 plot_zipfs_law <- function(docs_words, title="Zipf's Law", xlab="Range", ylab="Term Frequency") {
   freq_by_rank <- docs_words %>% 
-    group_by(document) %>% 
-    mutate(rank = row_number(), frecuencia_de_termino = n/total)
+  group_by(document) %>% 
+  mutate(rank = row_number(), frecuencia_de_termino = n/total) %>% 
+  ungroup()
   
   ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = document)) + 
     geom_line(size = 1, alpha = 0.8, show.legend = FALSE) + 
