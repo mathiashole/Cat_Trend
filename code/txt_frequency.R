@@ -129,7 +129,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   # Return the data frames for potential further use
   return(invisible(list(
     docs_words = docs_words,
-    top_words = top_words_by_doc
+    top_words = top_words_by_doc,
+    tf_idf = docs_words
   )))
 
 }
