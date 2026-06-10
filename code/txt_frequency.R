@@ -96,7 +96,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
   temporal_df <- tokens_df %>%
     mutate(year = lubridate::year(lubridate::dmy(as.character(date)))) %>%
-
+    filter(!is.na(year))
 
   # Plot words by year
   word_per_year_plot <- plot_words_per_year(
