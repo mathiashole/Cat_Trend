@@ -1,5 +1,11 @@
 #!/usr/bin/env Rscript
 
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(tidytext)
+  library(lubridate)
+})
+
 # Function to plot the frequency distribution of terms
 plot_term_frequency <- function(docs_words, title="Term Frequency Distribution", xlab="Terms Frequency", ylab="Count") {
   ggplot(data = docs_words, aes(n/total, fill = document)) +
