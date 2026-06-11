@@ -83,11 +83,11 @@ plot_top_global <- function(docs_words, title="Top 10 Most Frequent Words (All D
     labs(x = xlab, y = ylab)
 }
 
-# Función para extraer el año de la columna date
-extract_year <- function(df) {
-  df %>%
-    mutate(year = year(dmy(date)))
-}
+# # Funtion to extract year from date column
+# extract_year <- function(df) {
+#   df %>%
+#     mutate(year = year(dmy(date)))
+# }
 
 # Function to graph total words per year
 plot_words_per_year <- function(df, title="Frequency Distribution of Terms by Year", xlab="Year", ylab="Total Words") {
