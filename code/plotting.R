@@ -39,7 +39,7 @@ plot_zipfs_law <- function(docs_words, title="Zipf's Law", xlab="Range", ylab="T
 plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, ylab="tf-idf") {
   docs_words %>%
     select(-total) %>%
-    arrange(desc(tf_idf)) %>%
+    # arrange(desc(tf_idf)) %>%
     # mutate(word = factor(word, levels = rev(unique(word)))) %>% 
     # group_by(document) %>% 
     # top_n(10) %>% 
@@ -50,6 +50,9 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
     ggplot(aes(word, tf_idf, fill = document)) +
     geom_col(show.legend = FALSE) +
     labs(x = xlab, y = ylab) +
+    scale_x_reordered() +
+    facet_wrap(~document, ncol = 3, scales = "free") +
+    coord_flip()
     # facet_wrap(~document, ncol = 3, scales = "free") +
     # coord_flip() +
     # ggtitle(title) +
