@@ -40,12 +40,13 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
   docs_words %>%
     select(-total) %>%
     arrange(desc(tf_idf)) %>%
-    mutate(word = factor(word, levels = rev(unique(word)))) %>% 
+    # mutate(word = factor(word, levels = rev(unique(word)))) %>% 
     # group_by(document) %>% 
     # top_n(10) %>% 
     group_by(document) %>%
     slice_max(order_by = tf_idf, n = 10, with_ties = FALSE) %>%
     ungroup() %>%
+    mutate(word = reorder_within(word, tf_idf, document)) %>%
     ggplot(aes(word, tf_idf, fill = document)) +
     geom_col(show.legend = FALSE) +
     labs(x = xlab, y = ylab) +
