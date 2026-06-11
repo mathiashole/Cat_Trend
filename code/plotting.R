@@ -92,7 +92,7 @@ plot_top_global <- function(docs_words, title="Top 10 Most Frequent Words (All D
 # Function to graph total words per year
 plot_words_per_year <- function(df, title="Frequency Distribution of Terms by Year", xlab="Year", ylab="Total Words") {
   words_per_year <- df %>%
-    extract_year() %>%
+    # extract_year() %>%
     group_by(year) %>%
     summarise(total_words = n())
   
