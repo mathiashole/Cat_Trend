@@ -25,7 +25,8 @@ plot_zipfs_law <- function(docs_words, title="Zipf's Law", xlab="Range", ylab="T
   ungroup()
   
   ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = document)) + 
-    geom_line(size = 1, alpha = 0.8, show.legend = FALSE) + 
+    # geom_line(size = 1, alpha = 0.8, show.legend = FALSE) + 
+    geom_line(linewidth = 1, alpha = 0.8, show.legend = FALSE) +
     scale_x_log10() +
     scale_y_log10() +
     ggtitle(title) +
