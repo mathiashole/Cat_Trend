@@ -50,10 +50,10 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
     ggplot(aes(word, tf_idf, fill = document)) +
     geom_col(show.legend = FALSE) +
     labs(x = xlab, y = ylab) +
-    facet_wrap(~document, ncol = 3, scales = "free") +
-    coord_flip() +
-    ggtitle(title) +
-    theme_minimal()
+    # facet_wrap(~document, ncol = 3, scales = "free") +
+    # coord_flip() +
+    # ggtitle(title) +
+    # theme_minimal()
 }
 
 plot_top_10 <- function(docs_words, title="Top 10 Most Frequent Words per Document", xlab=NULL, ylab="Number of words") {
