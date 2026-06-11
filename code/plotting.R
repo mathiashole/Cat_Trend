@@ -124,6 +124,9 @@ plot_words_per_year_and_doc <- function(df, title="Term Frequency Distribution b
 
 # Feature to save a chart to PDF with fixed sizes
 save_plot_to_pdf <- function(plot, filename, width = 8, height = 6) {
+
+  dir.create(dirname(filename), recursive = TRUE, showWarnings = FALSE)
+
   ggsave(filename, plot = plot, width = width, height = height, limitsize = FALSE)
 }
 
