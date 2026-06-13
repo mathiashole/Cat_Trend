@@ -15,8 +15,10 @@ load_stopwords <- function(language, custom_stopwords_path = NULL) {
 
         stopwords_list <- stopwords(language = "es", source = "stopwords-iso")
 
-    }  else if (tolower(language) == "en") {
+    }   else if (language %in% c("en")) {
+
         stopwords_list <- stopwords(language = "en", source = "stopwords-iso")
+
     } else {
         stop("ERROR [Tokenizer]: Languague invalid 'SP' o 'EN'.")
     }
