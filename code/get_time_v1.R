@@ -119,6 +119,16 @@ main_get_time <- function(directory, date_hour, output_dir, max_lines_to_scan = 
 
   write.table(metadata_df, output_file, sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
 
+timeline_plot <- plot_timeline(output_file)
+
+save_plot_to_pdf(
+    timeline_plot,
+    file.path(output_dir, "timeline.pdf"),
+    width = 14,
+    height = 10
+)
+
+
   invisible(metadata_df)
 
 }
