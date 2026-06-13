@@ -11,8 +11,10 @@ source("code/clean_text.R")
 load_stopwords <- function(language, custom_stopwords_path = NULL) {
     language <- tolower(language)
     # Charge stopwords list based on the language
-    if (tolower(language) == "sp") {
+    if (language %in% c("es", "sp")) {
+
         stopwords_list <- stopwords(language = "es", source = "stopwords-iso")
+
     }  else if (tolower(language) == "en") {
         stopwords_list <- stopwords(language = "en", source = "stopwords-iso")
     } else {
