@@ -3,8 +3,7 @@
 # Function to plot the time line documents
 plot_timeline <- function(date_table, title="Document per site", xlab="", ylab="Site") {
 
-df_actas <- read.delim(date_table, 
-                       header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+df_actas <- read.delim(date_table, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 
 colnames(df_actas) <- c("file", "dates")
 
