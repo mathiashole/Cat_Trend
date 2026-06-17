@@ -34,8 +34,7 @@ rango_dates <- df_actas %>%
   mutate(site = factor(site, levels = site))
 
 # sequence of year
-anios <- seq(from = year(min(df_actas$dates)),
-             to   = year(max(df_actas$dates)), by = 1)
+anios <- seq(from = year(min(df_actas$dates)), to = year(max(df_actas$dates)), by = 1)
 breaks_centrados <- as.Date(paste0(anios, "-07-01"))
 
 # Plot
