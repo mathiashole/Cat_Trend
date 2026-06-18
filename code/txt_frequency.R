@@ -29,9 +29,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     count(site, word, sort = TRUE)
   
   #2.Count total number of terms in each book/document
-  total_words <- docs_words %>% 
-    group_by(document) %>% 
-    summarize(total = sum(n))
+  # total_words <- docs_words %>% 
+  #   group_by(document) %>% 
+  #   summarize(total = sum(n))
   
   #Join both structures
   docs_words <- left_join(docs_words, total_words, by = "document")
