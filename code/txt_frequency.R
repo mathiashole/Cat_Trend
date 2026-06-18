@@ -13,7 +13,12 @@ source("code/plotting.R")
 analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
   tokens_df <- tokens_df %>%
-
+  mutate(
+    site = stringr::str_remove(
+      document,
+      "_\\d{2}_\\d{2}_\\d{4}$"
+    )
+  )
 
   cat("→ [1/3] Calculating term frequencies, totals and Zipf rankings...\n")
 
