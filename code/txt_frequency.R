@@ -12,6 +12,9 @@ source("code/plotting.R")
 
 analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
+  tokens_df <- tokens_df %>%
+
+
   cat("→ [1/3] Calculating term frequencies, totals and Zipf rankings...\n")
 
   #1.Count term frequency in each book/document
