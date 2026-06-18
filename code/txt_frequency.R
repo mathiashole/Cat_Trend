@@ -34,7 +34,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   #   summarize(total = sum(n))
   total_words <- docs_words %>% 
     group_by(site) %>% 
-    summarize(total = sum(n))
+    summarize(total = sum(n), .groups = "drop")
   
   #Join both structures
   docs_words <- left_join(docs_words, total_words, by = "document")
