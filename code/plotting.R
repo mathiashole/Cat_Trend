@@ -43,7 +43,8 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
     # mutate(word = factor(word, levels = rev(unique(word)))) %>% 
     # group_by(document) %>% 
     # top_n(10) %>% 
-    group_by(document) %>%
+    # group_by(document) %>%
+    group_by(.data[[group_var]])
     slice_max(order_by = tf_idf, n = 10, with_ties = FALSE) %>%
     ungroup() %>%
     mutate(word = reorder_within(word, tf_idf, document)) %>%
