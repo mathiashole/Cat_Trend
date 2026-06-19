@@ -64,7 +64,8 @@ plot_top_10 <- function(docs_words, group_var = "document", title="Top 10 Most F
   ggplot(docs_words, aes(x = reorder_within(word, n, document), y = n, .data[[group_var]])) +
     geom_bar(stat = "identity") +
     scale_x_reordered() +
-    facet_wrap(~document, ncol = 3, scales = "free") +
+    # facet_wrap(~document, ncol = 3, scales = "free") +
+    facet_wrap(vars(.data[[group_var]]), scales = "free") +
     theme_minimal() +
     theme(legend.position = "none") +
     ggtitle(title) +
