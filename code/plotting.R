@@ -36,7 +36,7 @@ plot_zipfs_law <- function(docs_words, title="Zipf's Law", xlab="Range", ylab="T
 }
 
 # Function to graph TF-IDF
-plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, ylab="tf-idf") {
+plot_tf_idf <- function(docs_words, group_var = "document", title="Top 10 Words by TF-IDF", xlab=NULL, ylab="tf-idf") {
   docs_words %>%
     select(-total) %>%
     # arrange(desc(tf_idf)) %>%
