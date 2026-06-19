@@ -60,7 +60,8 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
 }
 
 plot_top_10 <- function(docs_words, group_var = "document", title="Top 10 Most Frequent Words per Document", xlab=NULL, ylab="Number of words") {
-  ggplot(docs_words, aes(x = reorder_within(word, n, document), y = n, fill = document)) +
+  # ggplot(docs_words, aes(x = reorder_within(word, n, document), y = n, fill = document)) +
+  ggplot(docs_words, aes(x = reorder_within(word, n, document), y = n, .data[[group_var]])) +
     geom_bar(stat = "identity") +
     scale_x_reordered() +
     facet_wrap(~document, ncol = 3, scales = "free") +
