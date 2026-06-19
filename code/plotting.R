@@ -25,7 +25,8 @@ plot_zipfs_law <- function(docs_words, group_var = "document", title="Zipf's Law
   mutate(rank = row_number(), frecuencia_de_termino = n/total) %>% 
   ungroup()
   
-  ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = document)) + 
+  # ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = document)) + 
+  ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = .data[[group_var]])) + 
     # geom_line(size = 1, alpha = 0.8, show.legend = FALSE) + 
     geom_line(linewidth = 1, alpha = 0.8, show.legend = FALSE) +
     scale_x_log10() +
