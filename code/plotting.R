@@ -52,7 +52,8 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
     geom_col(show.legend = FALSE) +
     labs(x = xlab, y = ylab) +
     scale_x_reordered() +
-    facet_wrap(~document, ncol = 3, scales = "free") +
+    # facet_wrap(~document, ncol = 3, scales = "free") +
+    facet_wrap(vars(.data[[group_var]]))
     coord_flip()
     # facet_wrap(~document, ncol = 3, scales = "free") +
     # coord_flip() +
