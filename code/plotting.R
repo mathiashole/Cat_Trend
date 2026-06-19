@@ -12,7 +12,7 @@ plot_term_frequency <- function(docs_words, group_var = "document", title="Term 
   ggplot(data = docs_words, aes(n/total, fill = .data[[group_var]])) +
     geom_histogram(show.legend = FALSE, bins = 30) +
     # facet_wrap(~document, ncol = 3, scales = "free_y") +
-    facet_wrap(~document, ncol = 3, scales = "free_y") +
+    facet_wrap(vars(.data[[group_var]]))
     ggtitle(title) +
     xlab(xlab) +
     ylab(ylab) +
