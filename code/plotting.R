@@ -59,7 +59,7 @@ plot_tf_idf <- function(docs_words, title="Top 10 Words by TF-IDF", xlab=NULL, y
     # theme_minimal()
 }
 
-plot_top_10 <- function(docs_words, title="Top 10 Most Frequent Words per Document", xlab=NULL, ylab="Number of words") {
+plot_top_10 <- function(docs_words, group_var = "document", title="Top 10 Most Frequent Words per Document", xlab=NULL, ylab="Number of words") {
   ggplot(docs_words, aes(x = reorder_within(word, n, document), y = n, fill = document)) +
     geom_bar(stat = "identity") +
     scale_x_reordered() +
