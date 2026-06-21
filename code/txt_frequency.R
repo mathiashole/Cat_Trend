@@ -20,8 +20,12 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     )
   )
 
-plots_document_dir <- file.path(plots_dir, "by_document")
-plots_site_dir <- file.path(plots_dir, "by_site")
+  plots_document_dir <- file.path(plots_dir, "by_document")
+  plots_site_dir <- file.path(plots_dir, "by_site")
+
+
+  dir.create(plots_document_dir, recursive = TRUE, showWarnings = FALSE)
+  dir.create(plots_site_dir, recursive = TRUE, showWarnings = FALSE)
 
   cat("→ [1/3] Calculating term frequencies, totals and Zipf rankings...\n")
 
