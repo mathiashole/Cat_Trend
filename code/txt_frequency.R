@@ -82,7 +82,8 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
   # Plot Top 10 of words (Fixed typos in filenames)
   top_10_plot <- plot_top_10(
-    top_words_by_doc, 
+    top_words_document,
+    group_var = "document", 
     title = "Top 10 Most Frequent Words by Document", 
     xlab = "Words", 
     ylab = "Frequency"
