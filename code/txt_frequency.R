@@ -72,7 +72,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ungroup()
 
   top_words_site <- docs_words_site %>%
-    group_by(site) 
+    group_by(site) %>%
+    slice_max(order_by = n, n = 10, with_ties = FALSE) %>%
+    ungroup()
 
   # ------------------------------ Plotting Section ------------------------------
 
