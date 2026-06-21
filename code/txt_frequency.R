@@ -69,7 +69,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
   # ------------------------------ Plotting Section ------------------------------
 
-  cat("  → [2/3] Generating frequency and TF-IDF visualizations...\n")
+  cat("→ [2/3] Generating frequency and TF-IDF visualizations...\n")
 
   # Plot Top 10 of words (Fixed typos in filenames)
   top_10_plot <- plot_top_10(
