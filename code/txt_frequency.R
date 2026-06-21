@@ -81,7 +81,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   cat("→ [2/3] Generating frequency and TF-IDF visualizations...\n")
 
   # Plot Top 10 of words (Fixed typos in filenames)
-  top_10_plot <- plot_top_10(
+  top_10_plot_doc <- plot_top_10(
     top_words_document,
     group_var = "document", 
     title = "Top 10 Most Frequent Words by Document", 
@@ -89,7 +89,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ylab = "Frequency"
   )
 
-  top_10_plot <- plot_top_10(
+  top_10_plot_site <- plot_top_10(
     top_words_site,
     group_var = "site", 
     title = "Top 10 Most Frequent Words by Site", 
