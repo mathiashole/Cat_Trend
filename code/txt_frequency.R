@@ -45,7 +45,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   #Join both structures
   # docs_words <- left_join(docs_words, total_words, by = "document")
-  docs_words <- left_join(docs_words_document, total_document, by = "document")
+  docs_words_document <- left_join(docs_words_document, total_document, by = "document")
 
   docs_words_site <- tokens_df %>%
     count(site, word, sort = TRUE)
