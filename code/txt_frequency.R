@@ -32,20 +32,20 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   #1.Count term frequency in each book/document
   # docs_words <- tokens_df %>% 
   #   count(document, word, sort = TRUE)
-  docs_words <- tokens_df %>% 
-    count(site, word, sort = TRUE)
+  docs_words_document <- tokens_df %>% 
+    count(document, word, sort = TRUE)
   
   #2.Count total number of terms in each book/document
   # total_words <- docs_words %>% 
   #   group_by(document) %>% 
   #   summarize(total = sum(n))
   total_words <- docs_words %>% 
-    group_by(site) %>% 
+    group_by(document) %>% 
     summarize(total = sum(n), .groups = "drop")
   
   #Join both structures
   # docs_words <- left_join(docs_words, total_words, by = "document")
-  docs_words <- left_join(docs_words, total_words, by = "site")
+  docs_words <- left_join(docs_words, total_words, by = "document")
 
   #3.Top 10 words by document (Fixing deprecated top_n -> slice_max)
   # top_words_by_doc <- docs_words %>%
