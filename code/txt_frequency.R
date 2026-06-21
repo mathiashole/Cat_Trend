@@ -47,6 +47,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   # docs_words <- left_join(docs_words, total_words, by = "document")
   docs_words <- left_join(docs_words, total_words, by = "document")
 
+  docs_words_site <- tokens_df %>%
+    count(site, word, sort = TRUE)
+
   #3.Top 10 words by document (Fixing deprecated top_n -> slice_max)
   # top_words_by_doc <- docs_words %>%
   #   group_by(document) %>%
