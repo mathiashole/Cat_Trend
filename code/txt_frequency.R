@@ -113,8 +113,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   save_plot_to_pdf(term_frequency_plot, file.path(plots_dir, "term_frequency.pdf"))
 
   # Apply Zipf's Law and plot
-  zipfs_law_plot <- plot_zipfs_law(
-    docs_words, 
+  zipfs_docs <- plot_zipfs_law(
+    docs_words_document,
+    group_var = "document", 
     title = "Zipfs law", 
     xlab = "Rank", 
     ylab = "Term frequency n/total"
