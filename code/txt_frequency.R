@@ -90,7 +90,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ylab = "Frequency"
   )
 
-  save_plot_to_pdf(top_10_plot_doc, file.path(plots_document_dir, "most_frequent_words.pdf"))
+  save_plot_to_pdf(top_10_plot_doc, file.path(top_10_plot_doc, "most_frequent_words.pdf"))
 
   top_10_plot_site <- plot_top_10(
     top_words_site,
