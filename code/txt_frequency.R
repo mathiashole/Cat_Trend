@@ -121,7 +121,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ylab = "Term frequency n/total"
   )
   
-  save_plot_to_pdf(zipfs_docs, file.path(plots_dir, "zipfs_law.pdf"))
+  save_plot_to_pdf(zipfs_docs, file.path(plots_document_dir, "zipfs_law.pdf"))
 
   # Calculate TF-IDF and plot
   # docs_words <- docs_words %>%
