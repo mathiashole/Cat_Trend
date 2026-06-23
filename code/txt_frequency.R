@@ -123,6 +123,14 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   save_plot_to_pdf(zipfs_docs, file.path(plots_document_dir, "zipfs_law.pdf"))
 
+  zipfs_site <- plot_zipfs_law(
+    docs_words_site,
+    group_var = "site", 
+    title = "Zipfs law", 
+    xlab = "Rank", 
+    ylab = "Term frequency n/total"
+  )
+
   # Calculate TF-IDF and plot
   # docs_words <- docs_words %>%
   #   bind_tf_idf(word, document, n)
