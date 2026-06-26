@@ -160,7 +160,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ylab = "TF-IDF"
   )
   
-  save_plot_to_pdf(tf_idf_plot, file.path(plots_dir, "tf_idf.pdf"))
+  save_plot_to_pdf(tf_idf_doc, file.path(plots_dir, "tf_idf.pdf"))
 
   # ------------------------------ Temporal Section ------------------------------
   
