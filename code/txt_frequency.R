@@ -145,12 +145,12 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   docs_words_site <- docs_words_site %>%
     bind_tf_idf(word, site, n)
 
-  tf_idf_plot <- plot_tf_idf(
-    docs_words, 
-    title = "Top 10 Words by TF-IDF", 
-    xlab = NULL, 
-    ylab = "TF-IDF"
-  )
+  # tf_idf_plot <- plot_tf_idf(
+  #   docs_words, 
+  #   title = "Top 10 Words by TF-IDF", 
+  #   xlab = NULL, 
+  #   ylab = "TF-IDF"
+  # )
   
   save_plot_to_pdf(tf_idf_plot, file.path(plots_dir, "tf_idf.pdf"))
 
