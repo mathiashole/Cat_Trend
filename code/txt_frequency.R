@@ -162,6 +162,14 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   
   save_plot_to_pdf(tf_idf_doc, file.path(plots_document_dir, "tf_idf.pdf"))
 
+  tf_idf_site <- plot_tf_idf(
+    docs_words_site,
+    group_var = "site", 
+    title = "Top 10 Words by TF-IDF", 
+    xlab = NULL, 
+    ylab = "TF-IDF"
+  )
+
   # ------------------------------ Temporal Section ------------------------------
   
   cat("→ [3/3] Exporting temporal analysis data and tables...\n")
