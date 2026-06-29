@@ -216,6 +216,9 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
   write.table(docs_words_document, file = file.path(output_dir, "documents_words_by_docs_metrics.tsv"),
     row.names = FALSE, sep = "\t", quote = FALSE)
 
+  write.table(docs_words_site, file = file.path(output_dir, "documents_words_by_site_metrics.tsv"),
+    row.names = FALSE, sep = "\t", quote = FALSE)
+
   write.table(top_words_document, file = file.path(output_dir, "top_words_by_document.tsv"),
     row.names = FALSE, sep = "\t", quote = FALSE)
 
