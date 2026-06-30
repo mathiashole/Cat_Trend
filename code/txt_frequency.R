@@ -110,7 +110,7 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
     ylab = "Count"
   )
   
-  save_plot_to_pdf(term_frequency_plot, file.path(plots_dir, "term_frequency.pdf"))
+  save_plot_to_pdf(term_frequency_plot, file.path(plots_dir, "term_frequency.pdf"), width = 14, height = 12)
 
   # Apply Zipf's Law and plot
   zipfs_docs <- plot_zipfs_law(
