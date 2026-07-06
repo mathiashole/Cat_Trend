@@ -10,6 +10,9 @@ suppressPackageStartupMessages({
 plot_term_frequency <- function(docs_words, group_var = "document", title="Term Frequency Distribution", xlab="Terms Frequency", ylab="Count") {
   ngroups <- dplyr::n_distinct(docs_words[[group_var]])
 
+    ncol <- ceiling(sqrt(ngroups))
+    nrow <- ceiling(ngroups / ncol)
+
 
 
   # ggplot(data = docs_words, aes(n/total, fill = document)) +
