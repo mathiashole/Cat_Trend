@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
   library(lubridate)
 })
 
+n_groups <- dplyr::n_distinct(docs_words[[group_var]])
+
 # Function to plot the frequency distribution of terms
 plot_term_frequency <- function(docs_words, group_var = "document", title="Term Frequency Distribution", xlab="Terms Frequency", ylab="Count") {
   # ggplot(data = docs_words, aes(n/total, fill = document)) +
