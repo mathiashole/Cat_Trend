@@ -8,6 +8,10 @@ suppressPackageStartupMessages({
 
 # Function to plot the frequency distribution of terms
 plot_term_frequency <- function(docs_words, group_var = "document", title="Term Frequency Distribution", xlab="Terms Frequency", ylab="Count") {
+  ngroups <- dplyr::n_distinct(docs_words[[group_var]])
+
+
+
   # ggplot(data = docs_words, aes(n/total, fill = document)) +
   ggplot(data = docs_words, aes(n/total, fill = .data[[group_var]])) +
     geom_histogram(show.legend = FALSE, bins = 30) +
