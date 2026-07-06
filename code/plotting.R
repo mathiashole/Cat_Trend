@@ -8,6 +8,16 @@ suppressPackageStartupMessages({
 
 n_groups <- dplyr::n_distinct(docs_words[[group_var]])
 
+if (n_groups <= 4) {
+    ncol <- 2
+} else if (n_groups <= 12) {
+    ncol <- 3
+} else if (n_groups <= 24) {
+    ncol <- 4
+} else {
+    ncol <- 5
+}
+
 # Function to plot the frequency distribution of terms
 plot_term_frequency <- function(docs_words, group_var = "document", title="Term Frequency Distribution", xlab="Terms Frequency", ylab="Count") {
   # ggplot(data = docs_words, aes(n/total, fill = document)) +
