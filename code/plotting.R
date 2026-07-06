@@ -24,7 +24,8 @@ plot_term_frequency <- function(docs_words, group_var = "document", title="Term 
     ggtitle(title) +
     xlab(xlab) +
     ylab(ylab) +
-    theme_minimal()
+    theme_minimal()+
+    theme(legend.position = "none")
 }
 
 # Function to apply Zipf's Law and graph
