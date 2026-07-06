@@ -71,7 +71,7 @@ plot_tf_idf <- function(docs_words, group_var = "document", title="Top 10 Words 
     labs(x = xlab, y = ylab) +
     scale_x_reordered() +
     # facet_wrap(~document, ncol = 3, scales = "free") +
-    facet_wrap(vars(.data[[group_var]]))
+    facet_wrap(vars(.data[[group_var]]), ncol = ncol, scales = "free") +
     coord_flip()
     # facet_wrap(~document, ncol = 3, scales = "free") +
     # coord_flip() +
