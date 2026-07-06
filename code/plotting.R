@@ -13,7 +13,8 @@ plot_term_frequency <- function(docs_words, group_var = "document", title="Term 
     ncol <- ceiling(sqrt(ngroups))
     nrow <- ceiling(ngroups / ncol)
 
-
+    width  <- max(8,  ncol * 3.5)
+    height <- max(6,  nrow * 2.8)
 
   # ggplot(data = docs_words, aes(n/total, fill = document)) +
   ggplot(data = docs_words, aes(n/total, fill = .data[[group_var]])) +
