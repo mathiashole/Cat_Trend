@@ -36,13 +36,13 @@ plot_zipfs_law <- function(docs_words, group_var = "document", title="Zipf's Law
   mutate(rank = row_number(), frecuencia_de_termino = n/total) %>% 
   ungroup()
   
-  ngroups <- dplyr::n_distinct(docs_words[[group_var]])
+  # ngroups <- dplyr::n_distinct(docs_words[[group_var]])
 
-  ncol <- ceiling(sqrt(ngroups))
-  nrow <- ceiling(ngroups / ncol)
+  # ncol <- ceiling(sqrt(ngroups))
+  # nrow <- ceiling(ngroups / ncol)
 
-  width  <- max(8,  ncol * 3.5)
-  height <- max(6,  nrow * 2.8)
+  # width  <- max(8,  ncol * 3.5)
+  # height <- max(6,  nrow * 2.8)
 
   # ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = document)) + 
   ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = .data[[group_var]])) + 
