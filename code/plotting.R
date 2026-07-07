@@ -63,7 +63,8 @@ plot_tf_idf <- function(docs_words, group_var = "document", title="Top 10 Words 
   ncol <- ceiling(sqrt(ngroups))
   nrow <- ceiling(ngroups / ncol)
 
-
+  width  <- max(8,  ncol * 3.5)
+  height <- max(6,  nrow * 2.8)
   
   docs_words %>%
     select(-total) %>%
