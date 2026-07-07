@@ -41,7 +41,8 @@ plot_zipfs_law <- function(docs_words, group_var = "document", title="Zipf's Law
   ncol <- ceiling(sqrt(ngroups))
   nrow <- ceiling(ngroups / ncol)
 
-
+  width  <- max(8,  ncol * 3.5)
+  height <- max(6,  nrow * 2.8)
 
   # ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = document)) + 
   ggplot(freq_by_rank, aes(rank, frecuencia_de_termino, color = .data[[group_var]])) + 
