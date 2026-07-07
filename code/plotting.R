@@ -60,6 +60,10 @@ plot_zipfs_law <- function(docs_words, group_var = "document", title="Zipf's Law
 plot_tf_idf <- function(docs_words, group_var = "document", title="Top 10 Words by TF-IDF", xlab=NULL, ylab="tf-idf") {
     ngroups <- dplyr::n_distinct(docs_words[[group_var]])
 
+  ncol <- ceiling(sqrt(ngroups))
+  nrow <- ceiling(ngroups / ncol)
+
+
   
   docs_words %>%
     select(-total) %>%
