@@ -129,6 +129,8 @@ save_plot_to_pdf(term_frequency_doc, file.path(plots_document_dir, "term_frequen
     ylab = "Count"
   )
 
+save_plot_to_pdf(term_frequency_site, file.path(plots_site_dir, "term_frequency.pdf"))
+
   # Apply Zipf's Law and plot
   zipfs_docs <- plot_zipfs_law(
     docs_words_document,
