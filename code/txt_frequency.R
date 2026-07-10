@@ -121,6 +121,14 @@ analyze_frequency <- function(tokens_df, output_dir, plots_dir) {
 
 save_plot_to_pdf(term_frequency_doc, file.path(plots_document_dir, "term_frequency.pdf"))
 
+  term_frequency_site <- plot_term_frequency(
+    docs_words_site,
+    group_var = "site",
+    title = "Term frequency distribution by site",
+    xlab = "Term frequency n/total",
+    ylab = "Count"
+  )
+
   # Apply Zipf's Law and plot
   zipfs_docs <- plot_zipfs_law(
     docs_words_document,
