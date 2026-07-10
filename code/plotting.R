@@ -159,6 +159,8 @@ plot_words_per_year_and_doc <- function(df, title="Term Frequency Distribution b
   ncol <- ceiling(sqrt(ngroups))
   nrow <- ceiling(ngroups / ncol)
 
+  width  <- max(8,  ncol * 3.5)
+  height <- max(6,  nrow * 2.8)
   
   words_per_year_and_doc <- df %>%
     # extract_year() %>%
