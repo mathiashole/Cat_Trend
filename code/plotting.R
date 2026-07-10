@@ -98,6 +98,9 @@ plot_top_10 <- function(docs_words, group_var = "document", title="Top 10 Most F
   ncol <- ceiling(sqrt(ngroups))
   nrow <- ceiling(ngroups / ncol)
 
+  width  <- max(8,  ncol * 3.5)
+  height <- max(6,  nrow * 2.8)
+  
   # ggplot(docs_words, aes(x = reorder_within(word, n, document), y = n, fill = document)) +
   ggplot(docs_words, aes(x = reorder_within(word, n, .data[[group_var]]), y = n, fill = .data[[group_var]])) +
     geom_bar(stat = "identity") +
