@@ -251,6 +251,14 @@ save_plot_to_pdf(term_frequency_site, file.path(plots_site_dir, "term_frequency.
   #   tf_idf = docs_words,
   #   frequency_table = docs_words
   # )))
+  return(invisible(list(
+    docs_words_document = docs_words_document,
+    docs_words_site = docs_words_site,
+    top_words_document = top_words_document,
+    top_words_site = top_words_site,
+    tf_idf_document = docs_words_document,
+    tf_idf_site = docs_words_site
+)))
 
 }
 
