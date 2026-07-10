@@ -245,12 +245,12 @@ save_plot_to_pdf(term_frequency_site, file.path(plots_site_dir, "term_frequency.
     row.names = FALSE, sep = "\t", quote = FALSE)
 
   # Return the data frames for potential further use
-  return(invisible(list(
-    docs_words = docs_words,
-    top_words = top_words_by_doc,
-    tf_idf = docs_words,
-    frequency_table = docs_words
-  )))
+  # return(invisible(list(
+  #   docs_words = docs_words,
+  #   top_words = top_words_by_doc,
+  #   tf_idf = docs_words,
+  #   frequency_table = docs_words
+  # )))
 
 }
 
