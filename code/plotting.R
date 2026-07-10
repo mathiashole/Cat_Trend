@@ -154,6 +154,9 @@ plot_words_per_year <- function(df, title="Frequency Distribution of Terms by Ye
 
 # Function to graph total words per year and per year
 plot_words_per_year_and_doc <- function(df, title="Term Frequency Distribution by Year and by Document", xlab="Year", ylab="Total Words per documents") {
+  ngroups <- dplyr::n_distinct(docs_words[[group_var]])
+
+  
   words_per_year_and_doc <- df %>%
     # extract_year() %>%
     group_by(document, year) %>%
