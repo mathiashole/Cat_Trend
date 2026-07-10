@@ -185,6 +185,11 @@ save_plot_to_pdf <- function(plot, filename, width = 8, height = 6) {
     if (is.null(width))
         width <- 8
 
+    if (is.null(height))
+        height <- attr(plot, "height")
+
+    if (is.null(height))
+        height <- 6
 
   dir.create(dirname(filename), recursive = TRUE, showWarnings = FALSE)
 
