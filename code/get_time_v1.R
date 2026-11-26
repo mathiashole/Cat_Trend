@@ -10,45 +10,6 @@ plotting_script <- file.path("code", "plotting.R")
 if (file.exists(timeline_script)) source(timeline_script)
 if (file.exists(plotting_script)) source(plotting_script)
 
-# 1. ---------- Search date in file names ----------
-# extract_date_from_filename <- function(file_path) {
-#   file_name <- basename(file_path)
-
-#   #Posible regax patterns date
-#   # sep <- "[\\s_\\-\\/]+" 
-#   sep <- "[\\s_./-]+"
-#   day_month <- "\\d{1,2}"
-#   year_4 <- "\\d{4}"
-#   year_2 <- "\\d{2}"
-
-#   # Only two master patterns to capture the date components
-#   patterns <- c(
-#     # Patterns A: format DD/MM/YYYY o D/M/YY (day/month goes first)
-#     paste0("\\b", day_month, sep, day_month, sep, "(?:", year_4, "|", year_2, ")\\b"),
-    
-#     # Patterns B: international type format YYYY/MM/DD o YYYY/M/D (Year goes first)
-#     paste0("\\b", year_4, sep, day_month, sep, day_month, "\\b")
-#   )
-
-#   for (pattern in patterns) {
-#     hit <- stringr::str_extract(file_name, pattern)
-    
-#     if (!is.na(hit)) {
-#       # 💡 normalized all string
-#       hit_normalized <- gsub("[\\s_\\-\\/]+", "/", hit)
-      
-#       # Parsing with lubridate trying both formats
-#       parsed <- suppressWarnings(lubridate::dmy(hit_normalized))
-#       if (is.na(parsed)) parsed <- suppressWarnings(lubridate::ymd(hit_normalized))
-      
-#       if (!is.na(parsed)) {
-#         return(format(parsed, "%d/%m/%Y"))
-#       }
-#     }
-#   }
-#   return(NA_character_)
-# }
-
 extract_date_from_filename <- function(file_path) {
   # Quitar extensión (.txt) para evitar interferencias del punto antes de 'txt'
   stem <- tools::file_path_sans_ext(basename(file_path))
