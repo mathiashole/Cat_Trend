@@ -49,9 +49,6 @@ if (file.exists(plotting_script)) source(plotting_script)
 #   return(NA_character_)
 # }
 
-library(stringr)
-library(lubridate)
-
 extract_date_from_filename <- function(file_path) {
   # Quitar extensión (.txt) para evitar interferencias del punto antes de 'txt'
   stem <- tools::file_path_sans_ext(basename(file_path))
