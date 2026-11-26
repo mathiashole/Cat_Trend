@@ -11,44 +11,92 @@ if (file.exists(timeline_script)) source(timeline_script)
 if (file.exists(plotting_script)) source(plotting_script)
 
 # 1. ---------- Search date in file names ----------
-extract_date_from_filename <- function(file_path) {
-  file_name <- basename(file_path)
+# extract_date_from_filename <- function(file_path) {
+#   file_name <- basename(file_path)
 
-  #Posible regax patterns date
-  sep <- "[\\s_\\-\\/]+" 
-  day_month <- "\\d{1,2}"
-  year_4 <- "\\d{4}"
-  year_2 <- "\\d{2}"
+#   #Posible regax patterns date
+#   # sep <- "[\\s_\\-\\/]+" 
+#   sep <- "[\\s_./-]+"
+#   day_month <- "\\d{1,2}"
+#   year_4 <- "\\d{4}"
+#   year_2 <- "\\d{2}"
 
-  # Only two master patterns to capture the date components
-  patterns <- c(
-    # Patterns A: format DD/MM/YYYY o D/M/YY (day/month goes first)
-    paste0("\\b", day_month, sep, day_month, sep, "(?:", year_4, "|", year_2, ")\\b"),
+#   # Only two master patterns to capture the date components
+#   patterns <- c(
+#     # Patterns A: format DD/MM/YYYY o D/M/YY (day/month goes first)
+#     paste0("\\b", day_month, sep, day_month, sep, "(?:", year_4, "|", year_2, ")\\b"),
     
-    # Patterns B: international type format YYYY/MM/DD o YYYY/M/D (Year goes first)
-    paste0("\\b", year_4, sep, day_month, sep, day_month, "\\b")
+#     # Patterns B: international type format YYYY/MM/DD o YYYY/M/D (Year goes first)
+#     paste0("\\b", year_4, sep, day_month, sep, day_month, "\\b")
+#   )
+
+#   for (pattern in patterns) {
+#     hit <- stringr::str_extract(file_name, pattern)
+    
+#     if (!is.na(hit)) {
+#       # 💡 normalized all string
+#       hit_normalized <- gsub("[\\s_\\-\\/]+", "/", hit)
+      
+#       # Parsing with lubridate trying both formats
+#       parsed <- suppressWarnings(lubridate::dmy(hit_normalized))
+#       if (is.na(parsed)) parsed <- suppressWarnings(lubridate::ymd(hit_normalized))
+      
+#       if (!is.na(parsed)) {
+#         return(format(parsed, "%d/%m/%Y"))
+#       }
+#     }
+#   }
+#   return(NA_character_)
+# }
+
+library(stringr)
+library(lubridate)
+
+extract_date_from_filename <- function(file_path) {
+  # Quitar extensión (.txt) para evitar interferencias del punto antes de 'txt'
+  stem <- tools::file_path_sans_ext(basename(file_path))
+
+  # Buscar patrón DD.MM.YYYY o DD/MM/YYYY o DD-MM-YYYY o DD_MM_YYYY (día y mes 1-2 dígitos, año 2 o 4 dígitos)
+  # Separado por límites no numéricos o inicio/fin de cadena
+  m <- str_match(
+    stem,
+    "(?:^|[^0-9])([0-3]?[0-9])[._/-]([01]?[0-9])[._/-]([0-9]{4}|[0-9]{2})(?:$|[^0-9])"
   )
 
-  for (pattern in patterns) {
-    hit <- stringr::str_extract(file_name, pattern)
-    
-    if (!is.na(hit)) {
-      # 💡 normalized all string
-      hit_normalized <- gsub("[\\s_\\-\\/]+", "/", hit)
-      
-      # Parsing with lubridate trying both formats
-      parsed <- suppressWarnings(lubridate::dmy(hit_normalized))
-      if (is.na(parsed)) parsed <- suppressWarnings(lubridate::ymd(hit_normalized))
-      
-      if (!is.na(parsed)) {
-        return(format(parsed, "%d/%m/%Y"))
-      }
-    }
+  if (all(is.na(m))) {
+    return(NA_character_)
   }
-  return(NA_character_)
+
+  day_val   <- as.integer(m[, 2])
+  month_val <- as.integer(m[, 3])
+  year_raw  <- m[, 4]
+
+  year_val <- if (nchar(year_raw) == 2L) {
+    yr_num <- as.integer(year_raw)
+    if (yr_num <= 50L) 2000L + yr_num else 1900L + yr_num
+  } else {
+    as.integer(year_raw)
+  }
+
+  # Validar rangos calendario reales (evita falsos positivos como mes > 12 o día > 31)
+  if (is.na(day_val) || is.na(month_val) || is.na(year_val)) {
+    return(NA_character_)
+  }
+  if (month_val < 1L || month_val > 12L || day_val < 1L || day_val > 31L) {
+    return(NA_character_)
+  }
+
+  fecha_str <- sprintf("%02d/%02d/%04d", day_val, month_val, year_val)
+  parsed <- suppressWarnings(dmy(fecha_str, quiet = TRUE))
+
+  if (is.na(parsed)) {
+    return(NA_character_)
+  }
+
+  format(parsed, "%d/%m/%Y")
 }
 
-extract_date_from_content <- function(file_path, max_lines = 10) {
+extract_date_from_content <- function(file_path, max_lines = max_lines) {
   # Date patterns in Spanish and English
   date_pattern_es <- "\\b(?:\\d{1,2}\\s+(?:de\\s+)?(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre)\\s+(?:de\\s+)?(?:\\d{2})?\\d{2}|\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-](?:\\d{2})?\\d{2})\\b"
   date_pattern_en <- "\\b(?:\\d{1,2}\\s+(?:January|February|March|April|May|June|July|August|September|October|November|December),?\\s+(?:\\d{2})?\\d{2})\\b|\\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{1,2},?\\s+(?:\\d{2})?\\d{2}\\b|\\b\\d{1,2}-(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-\\d{2,4}\\b|\\b\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-](?:\\d{2})?\\d{2}\\b"
@@ -68,6 +116,24 @@ extract_date_from_content <- function(file_path, max_lines = 10) {
     line_cleaned <- gsub(":", ": ", line_cleaned)
     line_cleaned <- gsub("(?<=\\D)\\bde\\b(?=\\d)", "", line_cleaned, perl = TRUE)
 
+    # date_in_line_es <- str_extract(line_cleaned, date_pattern_es)
+    # date_in_line_en <- str_extract(line_cleaned, date_pattern_en)
+    # First, search for numeric dates (DD/MM/YYYY, DD.MM.YYYY, DD-MM-YYYY)
+    date_numeric <- str_extract(
+      line_cleaned,
+      "\\b\\d{1,2}[./-]\\d{1,2}[./-]\\d{2,4}\\b"
+    )
+
+    if (!is.na(date_numeric)) {
+      date_normalized <- gsub("[./-]", "/", date_numeric)
+      parsed_date <- suppressWarnings(dmy(date_normalized))
+
+      if (!is.na(parsed_date)) {
+        return(format(parsed_date, "%d/%m/%Y"))
+      }
+    }
+
+    # If no numeric date was found, try dates with month names
     date_in_line_es <- str_extract(line_cleaned, date_pattern_es)
     date_in_line_en <- str_extract(line_cleaned, date_pattern_en)
 
