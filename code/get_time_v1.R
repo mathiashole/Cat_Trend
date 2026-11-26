@@ -54,6 +54,44 @@ extract_date_from_filename <- function(file_path) {
   format(parsed, "%d/%m/%Y")
 }
 
+parse_date_components <- function(day, month, year_raw) {
+  d <- suppressWarnings(as.integer(day))
+  m <- suppressWarnings(as.integer(month))
+  y <- suppressWarnings(as.integer(year_raw))
+
+  if (is.na(d) || is.na(m) || is.na(y)) {
+    return(NA_character_)
+  }
+
+  if (nchar(as.character(year_raw)) == 2L) {
+    y <- if (y <= 50L) 2000L + y else 1900L + y
+  }
+
+  if (m < 1L || m > 12L || d < 1L || d > 31L || y < 1900L || y > 2100L) {
+    return(NA_character_)
+  }
+
+  real_date <- tryCatch(
+    lubridate::make_date(year = y, month = m, day = d),
+    error = function(e) as.Date(NA)
+  )
+
+  if (is.na(real_date)) {
+    return(NA_character_)
+  }
+
+  format(real_date, "%d/%m/%Y")
+}
+
+clean_date_line <- function(line) {
+  out <- stringi::stri_trans_general(line, "Latin-ASCII")
+  out <- gsub("[\u2014\u2013\\-]+", " ", out, perl = TRUE)
+  out <- gsub("(?<=[0-9]),|,(?=[0-9])", ", ", out, perl = TRUE)
+  out <- gsub(":+", ": ", out, perl = TRUE)
+  out <- gsub("\\s+", " ", trimws(out))
+  out
+}
+
 extract_date_from_content <- function(file_path, max_lines = max_lines) {
   # Date patterns in Spanish and English
   date_pattern_es <- "\\b(?:\\d{1,2}\\s+(?:de\\s+)?(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre)\\s+(?:de\\s+)?(?:\\d{2})?\\d{2}|\\d{1,2}[\\/\\-]\\d{1,2}[\\/\\-](?:\\d{2})?\\d{2})\\b"
